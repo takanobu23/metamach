@@ -1,0 +1,68 @@
+@use "../foundation/import" as *;
+
+*,
+::before,
+::after {
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+
+body {
+	color: $c-black;
+	font-size: 15px;
+	line-height: 1;
+	font-family: $Noto-font;
+    overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+img {
+	image-rendering: -webkit-optimize-contrast;
+	max-width: 100%;
+	height: auto;
+	vertical-align: bottom;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: transparent;
+	border: none;
+	color: inherit;
+	cursor: pointer;
+	font: inherit;
+	padding: 0;
+}
+
+.pc {
+	@include media(xl) {
+		display: none;
+	}
+}
+
+.sp {
+	display: none;
+
+	@include media(sm) {
+		display: block;
+	}
+}

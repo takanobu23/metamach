@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta name=”robots” content=”index,follow”>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metamatch</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header_inner">
+        <button class="header_button">
+          <img src="./assets/images/icon_menu.svg" alt="メニュー" width="50" height="50">
+        </button>
+        <nav class="header_nav">
+          <div id="particles-js2"></div>
+          <button class="header_button-close">
+            <img src="./assets/images/icon_menu_close.svg" alt="メニュー" width="50" height="50">
+          </button>
+          <div>
+            <p class="header_ttl">MENU</p>
+            <ul class="header_nav-items">
+              <li class="header_nav-item">
+                <a href="#mission" class="header_nav-link">
+                  <img src="assets/images/img_header_01.png" srcset="assets/images/img_header_01@2x.png " alt="">
+                  <div class="header_nav-item_inner">
+                    <p class="header_nav-item_ttl"><img src="assets/images/txt_gnavi_01.png" srcset="assets/images/txt_gnavi_01@2x.png 2x" alt="MISSION"></p>
+                    <p class="header_nav-item_txt">ミッション</p>
+                  </div>								
+                </a>
+              </li>
+              <li class="header_nav-item">
+                <a href="#collaboration" class="header_nav-link">
+                  <img src="assets/images/img_header_02.png" srcset="assets/images/img_header_02@2x.png " alt="">
+                  <div class="header_nav-item_inner">
+                    <p class="header_nav-item_ttl"><img src="assets/images/txt_gnavi_02.png" srcset="assets/images/txt_gnavi_02@2x.png 2x" alt="COLLABORATION"></p>
+                    <p class="header_nav-item_txt">コラボレーション<br>想定事例</p>
+                  </div>								
+                </a>
+              </li>
+              <li class="header_nav-item">
+                <a href="#pickup" class="header_nav-link">
+                  <img src="assets/images/img_header_03.png" srcset="assets/images/img_header_03@2x.png " alt="">
+                  <div class="header_nav-item_inner">
+                    <p class="header_nav-item_ttl"><img src="assets/images/txt_gnavi_03.png" srcset="assets/images/txt_gnavi_03@2x.png 2x" alt="PICK UP"></p>
+                    <p class="header_nav-item_txt">ピックアップ・<br>パートナー企業</p>
+                  </div>								
+                </a>
+              </li>
+              <li class="header_nav-item">
+                <a href="#service" class="header_nav-link">
+                  <img src="assets/images/img_header_04.png" srcset="assets/images/img_header_04@2x.png " alt="">
+                  <div class="header_nav-item_inner">
+                    <p class="header_nav-item_ttl"><img src="assets/images/txt_gnavi_04.png" srcset="assets/images/txt_gnavi_04@2x.png 2x" alt="SERVICE"></p>
+                    <p class="header_nav-item_txt">サービスについて</p>
+                  </div>								
+                </a>
+              </li>
+              <li class="header_nav-item">
+                <a href="#consulting" class="header_nav-link">
+                  <img src="assets/images/img_header_05.png" srcset="assets/images/img_header_05@2x.png " alt="">
+                  <div class="header_nav-item_inner">
+                    <p class="header_nav-item_ttl"><img src="assets/images/txt_gnavi_05.png" srcset="assets/images/txt_gnavi_05@2x.png 2x" alt="CONSULTING"></p>
+                    <p class="header_nav-item_txt">コンサルサービス</p>
+                  </div>								
+                </a>
+              </li>
+              <li class="header_nav-item">
+                <a href="#flow" class="header_nav-link">
+                  <img src="assets/images/img_header_06.png" srcset="assets/images/img_header_06@2x.png " alt="">
+                  <div class="header_nav-item_inner">
+                    <p class="header_nav-item_ttl"><img src="assets/images/txt_gnavi_06.png" srcset="assets/images/txt_gnavi_06@2x.png 2x" alt="FLOW"></p>
+                    <p class="header_nav-item_txt">マッチング・<br>制作販売の流れ</p>
+                  </div>								
+                </a>
+              </li>
+            </ul>
+            <div class="fv_btn"><a href="#contact" class="button_link"><img src="./assets/images/btn_start_02.png" alt="さっそくはじめる" srcset="./assets/images/btn_start_02@2x.png 2x"></a></div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <div id="loader">
+      <div class="loader_overLay">
+        <div class="loader_inner">
+          <img src="./assets/images/img_logo.png" srcset="./assets/images/img_logo@2x.png 2x" alt="Metamatch" width="600" height="416">
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="ct-wrap"></div>
+
+    <main>
+      <section class="fv">
+        <div class="fv_wrap js-animation">
+          <div class="inner">
+            <div class="opa-slide-anime">
+              <h1 class="fv_logo"><img src="./assets/images/img_logo.png" width="239" height="166" alt="Metamatch" srcset="./assets/images/img_logo@2x.png 2x"></h1>
+              <p class="fv_txt">あの人と、あの企業と、<br>NFTを創ろう。</p>
+              <figure class="fv_catch"><img src="./assets/images/fv/img_fv_catch_2x.png" width="257" height="255" alt="NFT" srcset="./assets/images/fv/img_fv_catch_2x.png 2x"></figure>
+              <div class="fv_btn"><a href="#contact" class="button_link"><img src="./assets/images/btn_start.png" alt="さっそくはじめる" srcset="./assets/images/btn_start@2x.png 2x"></a></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="mission" id="mission">
+        <div class="mission_inner">
+          <video class="mission-movie" muted autoplay loop playsinline>
+            <source src="assets/images/mission/movie.mp4" type="video/mp4">
+          </video>
+          <div class="inner js-animation">
+            <div class="fadeIn-anime-box">
+              <h2 class="mission_ttl text-fadeIn-anime"><span>MISSION</span></h2>
+              <p class="mission_lead text text-fadeIn-anime"><span>デジタルライフの<br class="sp">境界線をなくそう</span></p>
+              <p class="mission_txt text text-fadeIn-anime"><span>私たちは、世界中で普及していくメタバースやデジタル経済圏のインフラになるNFTを活用し、富裕国から貧困国にいる世界中の人生を支えられるソリューションを提供するため、リアルライフとデジタルライフの境界線を無くすことを目指します。</span></p>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+
+      <div class="main_bg">
+        <div id="particles-js"></div>
+      </div>
+      <section class="collaboration" id="collaboration">
+        <div class="js-animation">
+          <div class="collaboration_ttl_box fadeIn-anime-box">
+            <p class="collaboration_ttl_box_caption text-fadeIn-anime"><span><img src="./assets/images/collaboration/txt_collaboration.png" width="257" height="255" alt="その発想をメタマッチで実現しよう" srcset="./assets/images/collaboration/txt_collaboration_2x.png 2x"></span></p>
+            <h2 class="title collaboration_ttl_box_ttl text-fadeIn-anime"><span>COLLABORATION</span></h2>
+          </div>
+          <p class="collaboration_lead text">コラボNFTでできること</p>
+          <ul class="collaboration_list">
+            <li>
+              <figure>
+                <img src="./assets/images/collaboration/img_collaboration_01.png" alt="アーティスト・デザイナー×自治体・NPO団体">
+              </figure>
+              <span class="icon modal_open"><a href="#modal1" class="js-modal"><img src="./assets/images/icon_modal_zoom.svg" alt="zoom"></a></span>
+            </li>
+            <li>
+              <figure>
+                <img src="./assets/images/collaboration/img_collaboration_02.png" alt="ミュージシャン×美容クリニック">
+              </figure>
+              <span class="icon modal_open"><a href="#modal2" class="js-modal"><img src="./assets/images/icon_modal_zoom.svg" alt="zoom"></a></span>
+            </li>
+            <li>
+              <figure>
+                <img src="./assets/images/collaboration/img_collaboration_03.png" alt="インフルエンサー×ゲーム">
+              </figure>
+              <span class="icon modal_open"><a href="#modal3" class="js-modal"><img src="./assets/images/icon_modal_zoom.svg" alt="zoom"></a></span>
+            </li>
+            <li>
+              <figure>
+                <img src="./assets/images/collaboration/img_collaboration_04.png" alt="アニメ・映画×スポーツ">
+              </figure>
+              <span class="icon modal_open"><a href="#modal4" class="js-modal"><img src="./assets/images/icon_modal_zoom.svg" alt="zoom"></a></span>
+            </li>
+            <li>
+              <figure>
+                <img src="./assets/images/collaboration/img_collaboration_05.png" alt="ファン100人×ビールフェス">
+              </figure>
+              <span class="icon modal_open"><a href="#modal5" class="js-modal"><img src="./assets/images/icon_modal_zoom.svg" alt="zoom"></a></span>
+            </li>
+          </ul>
+			<div class="collaboration_btn"><a href="#contact" class="button_link"><img src="./assets/images/btn_start_03.png" alt="さっそくはじめる" srcset="./assets/images/btn_start_03@2x.png 2x"></a></div>
+        </div>
+        <!-- collaboration modal -->
+        <div class="modal_wrapper mfp-hide" id="modal1">
+          <div class="modal_window">
+            <div class="modal_close">
+              <img src="./assets/images/icon_modal_close.svg" alt="" width="50" height="50">
+            </div>
+            <div class="modal_body">
+              <figure class="modal_image">
+                <img src="./assets/images/collaboration/img_collabo_modal_01.png" srcset="./assets/images/collaboration/img_collabo_modal_01@2x.png 2x" alt="アーティスト・デザイナー × 自治体・NPO団体" loading="lazy">
+              </figure>
+              <h3 class="modal_heading">アーティスト・デザイナー × 自治体・NPO団体</h3>
+              <div class="modal_ttl_box">
+                <h4>販売NFT</h4>
+              </div>
+              <p class="modal_ttl_box_ttl">NFTアート</p>
+              <p class="text">各利用者やファンに向けて、アートNFTを制作。キャンペーン特典や寄付制度を入れて地方創生・活性化を実現。</p>
+              <div class="modal_ttl_box">
+                <h4>特典設計</h4>
+                <p class="modal_ttl_box_caption"><span class="pink">●</span>クリエイター <span class="blue">●</span>企業</p>
+              </div>
+              <p class="text"><span class="pink">●</span>新規作品の優先購入<br>
+                <span class="pink">●</span>限定イベントの入場<br>
+                <span class="pink">●</span>オフライン作品の獲得<br>
+                <span class="pink">●</span>NFTコミュニティの参加<br>
+                <span class="blue">●</span>特産品の提供<br>
+                <span class="blue">●</span>自治体サービスの割引<br>
+                <span class="blue">●</span>寄付地域への旅行券<br>
+                <span class="blue">●</span>NFT保有者限定イベント参加権<br>
+                など</p>
+            </div>
+          </div>
+          <!-- /.modal-1 --></div>
+        <div class="modal_wrapper mfp-hide" id="modal2">
+          <div class="modal_mask"></div>
+          <div class="modal_window">
+            <div class="modal_close">
+              <img src="./assets/images/icon_modal_close.svg" alt="" width="50" height="50">
+            </div>
+            <div class="modal_body">
+              <figure class="modal_image">
+                <img src="./assets/images/collaboration/img_collabo_modal_02.png" srcset="./assets/images/collaboration/img_collabo_modal_02@2x.png 2x" alt="ミュージシャン × 美容クリニック" loading="lazy">
+              </figure>
+              <h3 class="modal_heading">ミュージシャン × 美容クリニック</h3>
+              <div class="modal_ttl_box">
+                <h4>販売NFT</h4>
+              </div>
+              <p class="modal_ttl_box_ttl">NFTミュージック</p>
+              <p class="text">顧客やファンに向けて、サービスや商品のキャンペーン・PRをコラボNFT楽曲などで提供する事が出来ます。</p>
+              <div class="modal_ttl_box">
+                <h4>特典設計</h4>
+                <p class="modal_ttl_box_caption"><span class="pink">●</span>クリエイター <span class="blue">●</span>企業</p>
+              </div>
+              <p class="text"><span class="pink">●</span>限定楽曲の獲得<br>
+                <span class="pink">●</span>限定グッズの獲得<br>
+                <span class="pink">●</span>作品の先行購入<br>
+                <span class="pink">●</span>ファンクラブコミュニティの参加<br>
+                <span class="blue">●</span>各店舗で使えるサービス割引特典一式<br>
+                <span class="blue">●</span>販売機器の獲得<br>
+                <span class="blue">●</span>新規サービスの無料体験<br>
+                <span class="blue">●</span>提携サービスの割引利用<br>
+                など</p>
+            </div>
+          </div>
+          <!-- /.modal-2 --></div>
+        <div class="modal_wrapper mfp-hide" id="modal3">
+          <div class="modal_mask"></div>
+          <div class="modal_window">
+            <div class="modal_close">
+              <img src="./assets/images/icon_modal_close.svg" alt="" width="50" height="50">
+            </div>
+            <div class="modal_body">
+              <figure class="modal_image">
+                <img src="./assets/images/collaboration/img_collabo_modal_03.png" srcset="./assets/images/collaboration/img_collabo_modal_03@2x.png 2x" alt="インフルエンサー × ゲーム" loading="lazy">
+              </figure>
+              <h3 class="modal_heading">インフルエンサー × ゲーム</h3>
+              <div class="modal_ttl_box">
+                <h4>販売NFT</h4>
+              </div>
+              <p class="modal_ttl_box_ttl">NFTゲームアイテム</p>
+              <p class="text">ブロックチェーンゲームだけでなく、ゲームユーザーに向け、アバターやアイテムなどを提供する事が出来ます。</p>
+              <div class="modal_ttl_box">
+                <h4>特典設計</h4>
+                <p class="modal_ttl_box_caption"><span class="pink">●</span>クリエイター <span class="blue">●</span>企業</p>
+              </div>
+              <p class="text"><span class="pink">●</span>制作ドキュメンタリー動画の限定公開<br>
+                <span class="pink">●</span>オフライングッズのチェキ<br>
+                <span class="pink">●</span>撮影会参加権<br>
+                <span class="pink">●</span>ビデオ通話・限定配信視聴権<br>
+                <span class="blue">●</span>コラボグッズの獲得<br>
+                <span class="blue">●</span>ゲームの中で特別な体験が受けられる<br>
+                <span class="blue">●</span>ゲームで使えるコラボアイテムが貰える<br>
+                <span class="blue">●</span>ゲーム内での特別なダンジョンに行ける<br>
+                など</p>
+            </div>
+          </div>
+          <!-- /.modal-3 --></div>
+        <div class="modal_wrapper mfp-hide" id="modal4">
+          <div class="modal_mask"></div>
+          <div class="modal_window">
+            <div class="modal_close">
+              <img src="./assets/images/icon_modal_close.svg" alt="" width="50" height="50">
+            </div>
+            <div class="modal_body">
+              <figure class="modal_image">
+                <img src="./assets/images/collaboration/img_collabo_modal_04.png" srcset="./assets/images/collaboration/img_collabo_modal_04@2x.png 2x" alt="アニメ・映画 × スポーツ" loading="lazy">
+              </figure>
+              <h3 class="modal_heading">アニメ・映画 × スポーツ</h3>
+              <div class="modal_ttl_box">
+                <h4>販売NFT</h4>
+              </div>
+              <p class="modal_ttl_box_ttl">NFTアートチケット</p>
+              <p class="text">ファンに向けて、電子アートチケットなどを制作。キャンペーンやイベントとして有効です。</p>
+              <div class="modal_ttl_box">
+                <h4>特典設計</h4>
+                <p class="modal_ttl_box_caption"><span class="pink">●</span>クリエイター <span class="blue">●</span>企業</p>
+              </div>
+              <p class="text"><span class="pink">●</span>コラボタオルなどのオフライングッズ<br>
+                <span class="pink">●</span>声優の声を録音したオリジナルデジタルコンテンツの提供<br>
+                <span class="pink">●</span>オリジナル単行本の提供<br>
+                <span class="pink">●</span>アニメの全話視聴コンテンツの提供<br>
+                <span class="blue">●</span>特別席・VIP席の提供（コラボ席ゾーン）<br>
+                <span class="blue">●</span>コラボ飯の限定配布<br>
+                <span class="blue">●</span>特典購入者対象でモニタービューに切り抜き<br>
+                <span class="blue">●</span>選手との撮影権・選手イベントの参加権<br>
+                など</p>
+            </div>
+          </div>
+          <!-- /.modal-4 --></div>
+        <div class="modal_wrapper mfp-hide" id="modal5">
+          <div class="modal_mask"></div>
+          <div class="modal_window">
+            <div class="modal_close">
+              <img src="./assets/images/icon_modal_close.svg" alt="" width="50" height="50">
+            </div>
+            <div class="modal_body">
+              <figure class="modal_image">
+                <img src="./assets/images/collaboration/img_collabo_modal_05.png" srcset="./assets/images/collaboration/img_collabo_modal_05@2x.png 2x" alt="ファン100人 × ビールフェス" loading="lazy">
+              </figure>
+              <h3 class="modal_heading">ファン100人 × ビールフェス</h3>
+              <div class="modal_ttl_box">
+                <h4>販売NFT</h4>
+              </div>
+              <p class="modal_ttl_box_ttl">NFTアート</p>
+              <p class="text">運営側とファン達でデジタルコンテンツを制作、NFTとして販売する事で、売上向上や地方創生を図れます。</p>
+              <div class="modal_ttl_box">
+                <h4>特典設計</h4>
+                <p class="modal_ttl_box_caption"><span class="pink">●</span>クリエイター <span class="blue">●</span>企業</p>
+              </div>
+              <p class="text"><span class="pink">●</span>制作したオフライングッズ<br>
+                <span class="blue">●</span>イベント入場時に貰える割引・引換券<br>
+                <span class="blue">●</span>イベント入場時に貰えるグッズ、特典配布物<br>
+                <span class="blue">●</span>予約時のイベント入場チケット割引コード<br>
+                <span class="blue">●</span>VIP枠の優先購入<br>
+                など</p>
+            </div>
+          </div>
+          <!-- /.modal-5 --></div>
+      </section>
+
+      <section class="pickup" id="pickup">
+        <div class="inner">
+          <h3 class="ttl">PICK UP</h3>
+          <ul class="pickup_list" id="macy">
+            <li><img src="./assets/images/pickup/img_pickup_01.png" alt=""></li>
+            <li><img src="./assets/images/pickup/img_pickup_02.png" alt=""></li>
+            <li><img src="./assets/images/pickup/img_pickup_03.png" alt=""></li>
+            <li><img src="./assets/images/pickup/img_pickup_04.png" alt=""></li>
+            <li><img src="./assets/images/pickup/img_pickup_05.png" alt=""></li>
+            <li><img src="./assets/images/pickup/img_pickup_06.png" alt=""></li>
+            <li><img src="./assets/images/pickup/img_pickup_07.png" alt=""></li>
+            <li><img src="./assets/images/pickup/img_pickup_08.png" alt=""></li>
+          </ul>
+          <p class="pickup_caption text">※PICK UPに掲載されたユーザーへ当社の許可なく直接連絡する行為は規約違反となりますのでご注意ください。</p>
+        </div>
+      </section>
+
+      <section class="partner">
+        <div class="inner">
+          <h3 class="ttl">PARTNER</h3>
+          <ul class="partner_list">
+            <li><a href="#"><img src="./assets/images/partner/img_partner_01.png" srcset="./assets/images/partner/img_partner_01_2x.png 2x" alt="Mobile Factory"></a></li>
+            <li><a href="#"><img src="./assets/images/partner/img_partner_02.png" srcset="./assets/images/partner/img_partner_02_2x.png 2x" alt="dentsu"></a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="news">
+        <div class="inner">
+          <h3 class="ttl">NEWS</h3>
+          <ul class="news_list">
+            <li><a href="#">
+              <p class="news_list_data">2022.09.01</p>
+              <p class="news_list_ttl">NFTマッチングサービス「メタマッチ」の特設サイトをオープンしました。</p>
+              </a></li>
+            <li><a href="#">
+              <p class="news_list_data">2022.09.01</p>
+              <p class="news_list_ttl">パートナー企業を追加しました。</p>
+              </a></li>
+            <li><a href="#">
+              <p class="news_list_data">2022.09.01</p>
+              <p class="news_list_ttl">ピックアップを追加しました。</p>
+              </a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="service">
+        <picture class="service_visual">
+          <source srcset="./assets/images/service/img_service_visual_sp.png" media="(max-width: 576px)">
+          <img src="./assets/images/service/img_service_visual.png" srcset="./assets/images/service/img_service_visual_2x.png 2x" alt="">
+        </picture>
+        <div class="inner js-animation" id="service">
+          <div class="fadeIn-anime-box">
+            <h2 class="title service_ttl text-fadeIn-anime"><span>SERVICE</span></h2>
+            <p class="service_catch text">創造しよう<br>心に、歴史に刻む<br>理想のNFTプロジェクト</p>
+            <p class="service_lead text">メタマッチは、様々な業種・業界・ジャンルを問わず<br class="pc">コラボNFTを販売したい相手が見つけられるマッチングサービスです。</p>
+          </div>
+          <ul class="service_list">
+            <li>
+              <p class="ttl_ja text col_pu">繋がる</p>
+			  <p class="ttl_en col_pu">Connected</p>
+              <div class="img"><img src="./assets/images/service/img_service_01.png" srcset="./assets/images/service/img_service_01_2x.png 2x" alt="繋がる"></div>
+              <p class="txt text">理想のコラボNFTを販売するための相手を見つけましょう。</p>
+            </li>
+            <li>
+              <p class="ttl_ja text col_pk">創造する</p>
+              <p class="ttl_en col_pk">Creation</p>
+              <div class="img"><img src="./assets/images/service/img_service_02.png" srcset="./assets/images/service/img_service_02_2x.png 2x" alt="創造する"></div>
+              <p class="txt text">やりたい企画を考えたら、希望を届けて新プロジェクトを創造しましょう。</p>
+            </li>
+            <li>
+              <p class="ttl_ja text col_yl">新しい価値を提供する</p>
+              <p class="ttl_en col_yl">Monetize</p>
+              <div class="img"><img src="./assets/images/service/img_service_03.png" srcset="./assets/images/service/img_service_03_2x.png 2x" alt="新しい価値を提供する"></div>
+              <p class="txt text">新しい価値の提供方法で売上を作り、デジタル体験を届けましょう。</p>
+            </li>
+          </ul>
+          <div class="acordion">
+            <div class="acordion_btn"><span class="off_txt">報酬について詳しく見る</span><span class="on_txt">閉じる</span></div>
+            <div class="acordion_content">
+              <ul class="acordion_content_list">
+                <li>
+                  <p class="ttl text">報酬について</p>
+                  <p class="txt text">売上から以下手数料を差し引いた額をお客様へお支払いします。売上マッチング料金：販売額の10％（売買成立時）オファー料金：オファー提示額の20%（オファー承諾時）</p>
+                  <div class="img"><img src="./assets/images/service/img_service_04.png" srcset="./assets/images/service/img_service_04_2x.png 2x" alt="報酬について"></div>
+                </li>
+                <li>
+                  <p class="ttl text">オファー料金について</p>
+                  <p class="txt text">オファー申請成立時にオファーしたユーザーがメタマッチへ支払いを行い、その後オファーを受けたユーザーは報酬に対して振込申請を行うことが可能になります。</p>
+                  <div class="img"><img src="./assets/images/service/img_service_05.png" srcset="./assets/images/service/img_service_05_2x.png 2x" alt="オファー料金について"></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="consulting" id="consulting">
+        <div class="inner">
+          <h3 class="consulting_ttl">CONSULTING</h3>
+          <div class="consulting_content">
+			<div class="img"><img src="./assets/images/consulting/img_consulting_02.jpg" srcset="./assets/images/consulting/img_consulting_02@2x.jpg 2x" alt=""></div>
+            <div class="txt">
+			  <p class="consulting_lead">NFT・DAO支援コンサルティング</p>
+              <p class="text">アンスペックスは、一定の審査基準を通過した「特別会員」に限定提供する、NFT・DAOのコンサルティングサービスです。目的に応じた成果達成や課題解決のため、ADrimの得意領域であるデジタルマーケティングのコンサルティングノウハウを軸に、DAO構築から活用運営支援、NFTマーケティングの戦略策定から媒体交渉などの実行までを一貫して支援いたします。</p>
+              <p class="text att">※DAOの構築・活用・運営などの支援サービスは準備中です。※ANSPEXのご利用をご希望される場合はお申込みください。基準を満たしたユーザーには弊社からご連絡させて頂いた後、別途契約が必要になります。</p>
+            </div>
+          </div>
+		  <img src="./assets/images/consulting/img_consulting_01.png" srcset="./assets/images/consulting/img_consulting_01@2x.png 2x" class="consulting_img" alt="ANSPEX">
+        </div>
+      </section>
+      <section class="flow" id="flow">
+        <div class="inner js-animation">
+          <div class="fadeIn-anime-box">
+            <h2 class="title service_ttl text-fadeIn-anime"><span>FLOW</span></h2>
+            <p class="flow_catch text">メタマッチご利用の流れ</p>
+          </div>
+          <div class="flow-block">
+            <div class="flow-block_inner">
+              <p class="flow-block_num">STEP<br>1</p>
+              <h3 class="flow-block_ttl">会員登録とフォーム入力</h3>
+              <div class="flow-block-img">
+                <p class="flow-block_txt">希望のカテゴリ、コラボ内容、オファーを設定してお申し込みフォームより内容を送信してください。</p>
+                <img src="./assets/images/flow/img_flow_01.png" srcset="./assets/images/flow/img_flow_01@2x.png 2x" alt="">
+              </div>						
+            </div>
+            <div class="flow-block_inner">
+              <p class="flow-block_num">STEP<br>2</p>
+              <h3 class="flow-block_ttl">マッチング提案</h3>
+              <div class="flow-block-img">
+                <p class="flow-block_txt">送信頂いた情報から最適な相手をご提案します。マッチングまでは本人が特定される情報は公開されません。</p>
+                <img src="./assets/images/flow/img_flow_02.png" srcset="./assets/images/flow/img_flow_02@2x.png 2x" alt="">
+              </div>						
+            </div>
+            <div class="flow-block_inner">
+              <p class="flow-block_num">STEP<br>3</p>
+              <h3 class="flow-block_ttl">マッチング成立</h3>
+              <div class="flow-block-img">
+                <p class="flow-block_txt">両者の承諾でマッチング成立。売上分配率や実施概要を擦り合わせ、実施可否の最終確認を行います。</p>
+                <img src="./assets/images/flow/img_flow_03.png" srcset="./assets/images/flow/img_flow_03@2x.png 2x" alt="">
+              </div>						
+            </div>
+            <div class="flow-block_end">
+              <picture>
+                <source srcset="./assets/images/flow/img_flow_04_sp.png 1x,./assets/images/flow/img_flow_04_sp@2x.png 2x" media="(max-width: 576px)">
+                <img src="./assets/images/flow/img_flow_04_pc.png" srcset="./assets/images/flow/img_flow_04_pc@2x.png 2x" alt="">
+              </picture>
+            </div>
+          </div>
+          <div class="acordion">
+            <div class="acordion_btn"><span class="off_txt">制作から販売までの流れを見る</span><span class="on_txt">閉じる</span></div>
+            <div class="acordion_content">
+              <div class="flow-accordion">
+                <p class="flow-accordion_ttl">制作から販売までの流れ</p>
+                <img src="./assets/images/img_logo_anspex.png" srcset="./assets/images/img_logo_anspex_2x.png 2x" class="flow-accordion_img" alt="ANSPEX">
+				  <p class="flow-accordion_txt">ANSPEX会員様は<br class="sp">販売までのサポートディレクション付き!</p>
+                <ul class="flow-accordion-lists">
+                  <li class="flow-accordion-lists_list">
+                    <p class="flow-accordion-lists_num">1.申込</p>
+                    <p class="flow-accordion-lists_txt">申込後に販売内容と制作者を決めたら使用素材を共有。</p>
+                    <p class="flow-accordion-lists_notes">※デザインに関する依頼をご検討の場合は別途ご相談ください。※申請は販売開始前の3営業日前に申請</p>
+                  </li>
+                  <li class="flow-accordion-lists_list">
+                    <p class="flow-accordion-lists_num">2.作成</p>
+                    <p class="flow-accordion-lists_txt">NFT及び特典で提供するコンテンツの作成と提供の準備。</p>
+                  </li>
+                  <li class="flow-accordion-lists_list">
+                    <p class="flow-accordion-lists_num">3.確認</p>
+                    <p class="flow-accordion-lists_txt">販売コンテンツ完成後、共有して確認と修正を実施。販売コンテンツによって販売先を調整。</p>
+                  </li>
+                  <li class="flow-accordion-lists_list">
+                    <p class="flow-accordion-lists_num">4.告知</p>
+                    <p class="flow-accordion-lists_txt">販売に向けて、広告媒体・オウンドメディア発信など実施。</p>
+                  </li>
+                  <li class="flow-accordion-lists_list">
+                    <p class="flow-accordion-lists_num">5.販売</p>
+                    <p class="flow-accordion-lists_txt">お申し込み頂いた販売希望日より販売を開始。</p>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="contact" id="contact">
+        <video class="contact-movie" muted autoplay loop playsinline>
+          <source src="assets/images/contact/movie.mp4" type="video/mp4">
+        </video>
+        <video class="contact-movie_sp" muted autoplay loop playsinline>
+          <source src="assets/images/contact/movie_sp.mp4" type="video/mp4">
+        </video>
+        <div class="contact-wrap">
+          <div class="contact-block contact-block00">
+            <div class="contact-block00_logo"><img src="./assets/images/contact/img_logo.png" srcset="./assets/images/contact/img_logo@2x.png 2x" alt="Metamatch"></div>
+            <h2 class="contact-block00_ttl">新規登録</h2>
+              <button type="button" class="contact-block00_btn" onclick="location.href='./contact.html'">登録画面へ進む</button>
+            <div class="contact-input">
+              <label class="contact-input_label">
+                <input type="checkbox" name="check" class="contact-input_input">
+                <span class="contact-input_check"></span>
+              </label>
+              <p class="contact-input_txt"><a href="https://www.admetam.net/images/kiyaku.pdf" target="_blank">利用規約</a>と<a href="https://adrim.co.jp/privacy" target="_blank">プライバシーポリシー</a>に同意のうえ登録画面へお進みください</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="letter">
+        <div class="letter-block">
+          <div class="letter_logo"><img src="./assets/images/img_logo.png" width="239" height="166" alt="Metamatch" srcset="./assets/images/img_logo@2x.png 2x"></div>
+          <h2 class="letter_ttl">あの人と、あの企業と、<br>NFTを創ろう。</h2>
+          <div class="fv_btn"><a href="#contact" class="button_link"><img src="./assets/images/btn_start_02.png" alt="さっそくはじめる" srcset="./assets/images/btn_start_02@2x.png 2x"></a></div>
+        </div>
+        <picture>
+          <source srcset="assets/images/letter/bg_letter_sp.jpg" media="(max-width: 576px)">
+          <img src="assets/images/letter/bg_letter.jpg" class="letter_bg" alt="">
+        </picture>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-block">
+        <ul class="footer-menu">          
+          <li class="footer-menu_list"><a href="https://adrim.co.jp/privacy" target="_blank">プライバシーポリシー</a></li>
+          <li class="footer-menu_list"><a href="https://www.admetam.net/images/kiyaku.pdf" target="_blank">利用規約</a></li>
+          <li class="footer-menu_list"><a href="#">特商法</a></li>
+          <li class="footer-menu_list"><a href="#">運営会社</a></li>
+        </ul>
+        <ul class="footer-sns">
+          <li class="footer-sns_list"><a href="#"><img src="assets/images/icon_sns_tw.png" srcset="assets/images/icon_sns_tw@2x.png 2x" alt=""></a></li>
+            <!--<li class="footer-sns_list"><a href="#"><img src="assets/images/icon_sns_ig.png" srcset="assets/images/icon_sns_ig@2x.png 2x" alt=""></a></li>
+            <li class="footer-sns_list"><a href="#"><img src="assets/images/icon_sns_yt.png" srcset="assets/images/icon_sns_yt@2x.png 2x" alt=""></a></li>-->
+        </ul>
+        <div class="footer-logo"><img src="assets/images/logo_jba.png" srcset="assets/images/logo_jba@2x.png 2x" alt="JBA"></div>
+        <div class="footer-pagetop"><a href="#"><img src="assets/images/icon_pagegtop.png" srcset="assets/images/icon_pagegtop@2x.png 2x" alt=""></a></div>
+        <p class="footer-copy">copyright&copy;ADrim all rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+    <!-- <script src="assets/js/jquery.cookie.js"></script> -->
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/macy.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/particles/particles.min.js"></script>
+    <script src="assets/js/particles/app.js"></script>
+	<script src="assets/js/multiple-select.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/menu.js"></script>
+  </body>
+
+</html>

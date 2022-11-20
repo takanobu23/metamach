@@ -1,0 +1,307 @@
+@use "../../foundation/import"as *;
+.flow {
+	margin-top: 57px;
+	position: relative;
+	z-index: 1;
+	padding-bottom: 60px;
+	font-family: $hiragino-font;
+	@include tracking(50);
+	&_visual {
+		img {
+			width: 100%;
+		}
+	}
+	&_ttl {
+		text-align: center;
+		margin-top: 60px;
+		position: relative;
+		display: block;
+		span {
+			background: linear-gradient(115.36deg, #FD0905 22.98%, #E3058F 34.35%, #CE01FC 48.69%, #8C0EEA 62.77%, #3A1FD3 74.95%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			text-fill-color: transparent;
+			font-family: $rubik-font;
+			font-weight: 600;
+			font-size: pxToRem(42px);
+		}
+	}
+	&_catch {
+		font-size: pxToRem(14px);
+		font-weight: 600;
+		margin: 20px 0 70px;
+		line-height: 1.5;
+	}
+	&-block{
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		position: relative;
+		@include media(md) {
+			display: block;
+		}
+		&_inner{
+			position: relative;
+			width: 30.6%;
+			max-width: 300px;
+			background: $c-white;
+			box-shadow: -4px -4px 10px #FFFFFF, 4px 4px 10px #A6ABBD;
+			border-radius: 10px;
+			margin: 0;
+			padding: 48px 20px 20px;
+			&:nth-child(3){
+				&::after{
+					top: auto;
+					right: auto;
+					left: 20%;
+					bottom: -47px;
+					transform: rotate(90deg);
+					@include media(md) {
+						left: 50%;
+						bottom: -47px;
+						transform: translateX(-50%) rotate(90deg);
+					}
+					@include media(sm) {
+						bottom: -8vw;
+						width: calcvw(10);
+						height: calcvw(21);
+						transform: rotate(90deg);
+					}
+				}
+			}
+			@include media(md) {
+				width: 80%;
+				max-width: inherit;
+				margin: 65px auto 0;
+			}
+			&::after{
+				content: '';
+				position: absolute;
+				top: 50%;
+				right: -9%;
+				width: pxToRem(11px);
+				height: pxToRem(22px);
+				background: url(../images/flow/icon_arrow.svg) center center / 100% auto no-repeat;
+				transform: translateY(-50%);
+				@include media(md) {
+					top: auto;
+					right: auto;
+					left: 50%;
+					bottom: -47px;
+					transform: translateX(-50%) rotate(90deg);
+				}
+				@include media(sm) {
+					bottom: -8vw;
+					width: calcvw(10);
+					height: calcvw(21);
+					transform: rotate(90deg);
+				}
+			}
+			@include media(sm) {
+				width: 100%;
+				min-width: inherit;
+				margin-top: calcvw(40);
+				padding: calcvw(50) calcvw(20) calcvw(20);
+				&::after{
+					content: '';
+					position: absolute;
+					top: auto;
+					bottom: -8vw;
+					left: 50%;
+					width: calcvw(10);
+					height: calcvw(21);
+					transform: rotate(90deg);
+					background: url(../images/flow/icon_arrow.svg) center center / 100% auto no-repeat;
+					transform: rotate(90deg);
+				}
+			}
+			/*
+			&:nth-child(-n+2){
+				margin-top: 0;
+				@include media(sm) {
+					margin-top: calcvw(40);
+				}
+			}
+			*/
+			&:first-child{
+				margin-top: 0;
+			}
+			/*
+			&:nth-child(odd){
+				&::after{
+					content: '';
+					position: absolute;
+					top: 50%;
+					right: -5.5%;
+					width: pxToRem(11px);
+					height: pxToRem(22px);
+					background: url(../images/flow/icon_arrow.svg) center center / 100% auto no-repeat;
+					transform: translateY(-50%);
+					@include media(md) {
+						right: -2.8vw;
+					}
+					@include media(sm) {
+						top: auto;
+						right: auto;
+						left: 50%;
+						bottom: -8vw;
+						width: calcvw(10);
+						height: calcvw(21);
+						transform: rotate(90deg);
+					}
+				}
+			}*/
+		}
+		&_num{
+			position: absolute;
+			top: -2.1em;
+			left: 1.4em;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			width: 4.286em;
+			height: 4.286em;
+			font-size: pxToRem(14px);
+			color: $c-white;
+			font-weight: 500;
+			font-family: $rubik-font;
+			background: #1414E6;
+			border-radius: 100%;
+			padding-top: 0.5em;
+		}
+		&_ttl{
+			font-size: pxToRem(18px);
+			font-weight: 600;
+			color: #1414E6;
+			margin: 0 0 1em;
+		}
+		&_txt{
+			width: 66%;
+			max-width: 280px;
+			font-size: pxToRem(14px);
+			line-height: 1.8;
+			font-weight: 600;
+			@include media(sm) {
+				width: 48%;
+				max-width: inherit;
+			}
+		}
+		&-img{
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			img{
+				width: 30%;
+				max-width: 130px;
+				@include media(sm) {
+					width: 45%;
+					max-width: inherit;
+				}
+			}
+		}
+		&_end{
+			width: 70%;
+			min-width: 680px;
+			box-shadow: 0px 0px 10px #1414E6;
+			border-radius: 10px;
+			overflow: hidden;
+			margin: 65px auto 0;
+			@include media(md) {
+				width: 100%;
+				min-width: inherit;
+			}
+			@include media(sm) {
+				width: 100%;
+				margin-top: calcvw(40);
+			}
+			picture{
+				width: 100%;
+				height: 100%;
+			}
+			img{
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+	&-accordion{
+		background: $c-white;
+		padding: 52px 40px;
+		@include media(sm) {
+			padding: calcvw(40) calcvw(20) calcvw(20);
+		}
+		&_ttl{
+			font-size: pxToRem(18px);
+			font-weight: 600;
+			text-align: center;
+		}
+		&_txt{
+			color: #1414E6;
+			font-size: pxToRem(14px);
+			font-weight: 600;
+			text-align: center;
+			@include media(sm) {
+				line-height: 1.5;
+			}
+		}
+		&_img{
+			display: block;
+			margin: pxToRem(20px) auto;
+		}
+		&-lists{
+			&_list{
+				background: #F5F5F8;
+				box-shadow: -4px -4px 10px #FFFFFF, 4px 4px 10px #A6ABBD;
+				padding: pxToRem(20px);
+				border-radius: 10px;
+				margin: 10px 0 0;
+				&:first-child{
+					margin-top: 20px;
+				}
+			}
+			&_num{
+				font-weight: 600;
+				font-size:  pxToRem(14px);
+				color: #1414E6;
+				line-height: 1.8;
+				margin: 0 0 0.5em;
+				@include media(sm) {
+					text-align: center;
+				}
+			}
+			&_txt{
+				font-weight: 600;
+				font-size:  pxToRem(14px);
+				line-height: 1.8;
+				margin: 0 0 0.5em;
+			}
+			&_notes{
+				font-size:  pxToRem(12px);
+				line-height: 1.7;
+			}
+		}
+	}
+	&-block{
+		&01{
+			&_ttl{
+				font-size: pxToRem(18px);
+				font-weight: 600;
+			}
+		}
+	}
+	.acordion{
+		&_btn{
+			width: 48%;
+			max-width: 470px;
+			background: #1414E6; 
+			@include media(sm) {
+				width: auto;
+				max-width: inherit;
+				margin-top: calcvw(20);
+			}
+		}
+	}
+}

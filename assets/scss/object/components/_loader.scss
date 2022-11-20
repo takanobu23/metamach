@@ -1,0 +1,141 @@
+@use "../../foundation/import" as *;
+
+#loader {
+  @include size(100vw, 100vh);
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  .loader_overLay {
+    @include size(100vw, 100vh);
+    overflow: hidden;
+    position: fixed;
+    z-index: 9990;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    &.anime {
+      animation: fadeOut 0.30s linear 1.6s 1 normal forwards running,;
+    }
+
+    &::before {
+      background-color: #F4F6F8;
+      content: "";
+      display: block;
+      @include size(100%, 100%);
+      overflow: visible;
+      position: absolute;
+      transform-origin: left top;
+      z-index: 2;
+    }
+  }
+
+  .loader_inner {
+    display: block;
+    margin: 0 auto;
+    transform: translateY(-50%) translateX(-50%);
+    width: 165px;
+    z-index: 3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    &.anime {
+      animation: fadelogo 2.6s linear 0s 1 normal forwards running,fadelogo2 1.32s ease 2.6s 1 normal forwards;
+    }
+  }
+}
+@keyframes fadelogo{
+  20%{opacity:1}
+  47%{opacity:1}
+  50%{opacity:0}
+  51%{opacity:1}
+  67%{opacity:1}
+  70%{opacity:0}
+  71%{opacity:1}
+  82%{opacity:1}
+  85%{opacity:0}
+  86%{opacity:1}
+  87%{opacity:1}
+  90%{opacity:0}
+  91%{opacity:1}
+  92%{opacity:1}
+  95%{opacity:0}
+  96%{opacity:1}
+  100%{opacity:1}
+}
+@keyframes fadelogo2 {
+  0%{
+    opacity:1;
+    left:50%;
+  }
+  62% {
+    opacity:1;
+    left:50%;
+  }
+  100%{
+    opacity:0;
+    left:54%;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    left: 50%;
+  }
+  100% {
+    left: 154%;
+  }
+}
+
+.off {
+  .loader-overLay {
+
+    &::after {
+      background-color: #fff;
+      content: "";
+      display: block;
+      @include size(100%, 100%);
+      overflow: visible;
+      position: absolute;
+      transform-origin: left top;
+      z-index: 1;
+
+      animation-name: logo-fade-out;
+      animation-timing-function: cubic-bezier(0.1, 0.5, 0.2, 1);
+      animation-duration: 3s;
+      animation-delay: 0.2s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+}
+
+
+.ct-wrap {
+  &.visualIn {
+    animation-name: main-visual-in;
+    animation-timing-function: cubic-bezier(0.1, 0.5, 0.2, 1);
+    animation-duration: 2.5s;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes main-visual-in {
+  0% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@include media(sm) {
+  #loader {
+    .loader_inner {
+      transform: translateY(-50%) translateX(-52%);
+    }
+  }
+}

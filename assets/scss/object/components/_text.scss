@@ -1,0 +1,14 @@
+@use "../../foundation/import"as *;
+
+.text {
+	font-family: $hiragino-font;
+	@include tracking(50);
+	@include l_height(15, 32);
+	text-align: center;
+}
+
+@include media(sm) {
+	.text {
+		font-size: pxToRem(14px);
+	}
+}

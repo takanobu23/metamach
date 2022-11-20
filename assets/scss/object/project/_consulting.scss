@@ -1,0 +1,87 @@
+@use "../../foundation/import"as *;
+.consulting {
+	background-color: #ECECF0;
+	padding: 60px 0;
+	position: relative;
+	z-index: 1;
+	&_ttl {
+		text-align: center;
+		font-family: $rubik-font;
+		font-weight: 600;
+		color: #1414E6;
+		font-size: pxToRem(30px);
+	}
+	&_lead {
+		font-size: pxToRem(16px);
+		font-weight: 600;
+		margin-bottom: 1em;
+	}
+	&_logo {
+		margin-top: 20px;
+		img {
+			margin: 0 auto;
+		}
+	}
+	&_img{
+		margin: 45px auto 0;
+	}
+	&_content {
+		display: flex;
+		align-items: center;
+        justify-content: space-between;
+		flex-flow: row-reverse;
+		align-items: flex-start;
+		margin-top: 60px;
+		.txt {
+			width: 48%;
+			max-width: 460px;
+			@include media(lg) {
+				width: 45%;
+				max-width: inherit;
+			}
+			.text {
+				font-size: pxToRem(14px);
+				font-weight: 600;
+				line-height: 1.8;
+				text-align: left;
+				&.att {
+					font-size: pxToRem(12px);
+					font-weight: 300;
+					margin-top: 1em;
+				}
+			}
+		}
+		.img {
+			width: 48%;
+			max-width: 450px;
+			@include media(lg) {
+				width: 48%;
+				max-width: inherit;
+			}
+		}
+	}
+}
+
+@include media(sm) {
+	.consulting {
+		padding-bottom: 50px;
+		&_content {
+			display: block;
+			margin-top: 27px;
+			.txt {
+				width: 100%;
+				max-width: none;
+				margin-top: 20px;
+				.text {
+					&.att {
+						margin-top: 5px;
+					}
+				}
+			}
+			.img {
+				width: 100%;
+				max-width: none;
+			}
+		}
+	}
+}

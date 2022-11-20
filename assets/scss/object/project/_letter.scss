@@ -1,0 +1,41 @@
+@use "../../foundation/import"as *;
+.letter{
+	font-family: $hiragino-font;
+	@include tracking(50);
+	position: relative;
+	&-block{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 100%;
+		transform: translate(-50%,-50%);
+	}
+	&_logo{
+		width: 142px;
+		margin: 0 auto;
+		img{
+			width: 100%;
+			height: auto;
+		}
+	}
+	&_ttl{
+		text-align: center;
+		font-size: pxToRem(24px);
+		font-weight: 900;
+		font-family: $Noto-font;
+		line-height: 1.6;
+		margin: 0.8em 0 1.3em;
+		@include media(sm) {
+			margin: 0.8em 0 50vw;
+		}
+	}
+	&_bg{
+		width: 100%;
+		height: 459px;
+		object-fit: cover;
+		@include media(sm) {
+			height: auto;
+		}
+	}
+	
+}

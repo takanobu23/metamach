@@ -1,0 +1,147 @@
+@use "../foundation/import" as *;
+
+
+.footer {
+	font-family: $hiragino-font;
+	@include tracking(50);
+	background: url(../images/bg_footer.jpg) center center / cover no-repeat;
+	padding: 45px 0 30px;
+	@include media(sm) {
+		background: url(../images/bg_footer_sp.jpg) center center / cover no-repeat;
+        padding: 8vw 10vw;
+	}
+    &-logo{
+        position: absolute;
+        bottom: 0;
+        right: 90px;
+        width: 35px;
+        @include media(sm) {
+            top: 10vw;
+            bottom: auto;
+            right: 3vw;
+            width: 9vw;
+            img{
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+	&-block{
+		position: relative;
+		max-width: 980px;
+		margin: 0 auto;
+		padding: 0 20px;
+        @include media(sm) {
+            padding: 0;
+        }
+	}
+	&-menu{
+        display: flex;
+        justify-content: flex-start;
+        @include media(sm) {
+            display: block;
+        }
+		&_list{
+			font-size: pxToRem(12px);
+			& + &{
+				margin-left: 2em;
+                @include media(sm) {
+                    margin: 1.5em 0 0 0;
+                }
+			}
+			a{
+				text-decoration: underline;
+				color: $c-white;
+			}
+		}
+	}
+	&-pagetop{
+      position: fixed;
+      bottom: 10px;
+      right: 20px;
+      z-index: 100;
+        @include media(sm) {
+            right: 3vw;
+            width: 13vw;
+            height: auto;
+            img{
+                width: 100%;
+                height: auto;
+            }
+        }
+	}
+	&-sns{
+		position: absolute;
+		bottom: 0;
+		right: 150px;
+		display: flex;
+		justify-content: flex-end;
+        @include media(sm) {
+            top: 0;
+            right: 3vw;
+        }
+		&_list{
+            @include media(sm) {
+                width: 8vw;
+            }
+			a{
+				transition: 0.3s;
+				&:hover{
+					opacity: 0.7;
+				}
+			}
+			& + &{
+				margin-left: 8px;
+			}
+		}
+	}
+	&-copy{
+		text-align: left;
+		font-size: pxToRem(12px);
+		color: $c-white;
+		margin: 1.5em 0 0;
+	}
+}
+
+@include media(lg) {
+
+}
+
+@include media(sm) {
+	.footer {
+		&_content {
+			&-title {
+				margin-bottom: 4%;
+
+				.lead {
+					font-size: pxToRem(24px);
+				}
+
+				.en {
+					font-size: pxToRem(55px);
+				}
+
+				.ja {
+					font-size: pxToRem(25px);
+				}
+			}
+
+			&-text {
+				font-size: pxToRem(18px);
+			}
+		}
+
+
+
+		&_list {
+			flex-wrap: wrap;
+		}
+
+		&_image {
+			@include content-center(80%);
+		}
+	}
+}
+
+
+

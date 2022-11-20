@@ -1,0 +1,56 @@
+// media query
+$breakpoints: (
+  's_sm': 'screen and (max-width: 368px)',
+  'sm': 'screen and (max-width: 576px)',
+  'md': 'screen and (max-width: 768px)',
+  'lg': 'screen and (max-width: 992px)',
+  'xl': 'screen and (max-width: 1200px)',
+) !default;
+
+@mixin media($breakpoint) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin content-center($w){
+  margin: 0 auto;
+  max-width: $w;
+}
+
+@mixin flex-center() {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin size($w, $h){
+  width: $w;
+  height: $h;
+}
+
+@mixin tracking($tracking) {
+	letter-spacing: ($tracking / 1000) + em;
+}
+
+@mixin l_height($pixels , $height) {
+	line-height: $height / $pixels;
+}
+
+// ------------------------------------------
+// vwpc
+// ex)width: calcvwpc(1280)
+// ------------------------------------------
+$pc-design-width: 1280; //基準のwidth
+@function calcvwpc($num, $width: $pc-design-width) {
+    @return (1vw * $num / $width * 100);
+}
+
+// ------------------------------------------
+// vwsp
+// ex)width: calcvw(375)
+// ------------------------------------------
+$sp-design-width: 375; //基準のwidth
+@function calcvw($num, $width: $sp-design-width) {
+    @return (1vw * $num / $width * 100);
+}

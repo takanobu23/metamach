@@ -1,0 +1,153 @@
+@use "../../foundation/import"as *;
+#service{
+  padding-top: 60px;
+}
+.service {
+	margin-top: 57px;
+	position: relative;
+	z-index: 1;
+	padding-bottom: 40px;
+	&_visual {
+		img {
+			width: 100%;
+		}
+	}
+	&_ttl {
+		text-align: center;
+		position: relative;
+		display: block;
+		span {
+			background: linear-gradient(115.36deg, #FD0905 22.98%, #E3058F 34.35%, #CE01FC 48.69%, #8C0EEA 62.77%, #3A1FD3 74.95%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			text-fill-color: transparent;
+			font-family: $rubik-font;
+			font-weight: 600;
+			font-size: pxToRem(42px);
+		}
+	}
+	&_catch {
+		font-size: pxToRem(24px);
+		font-weight: 600;
+		margin-top: 20px;
+		line-height: 1.5;
+	}
+	&_lead {
+		font-size: pxToRem(14px);
+		font-weight: 600;
+		margin-top: 20px;
+	}
+	&_list {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 40px;
+		li {
+			width: 30.6%;
+			max-width: 300px;
+			padding: 25px 18px;
+			background: #ECECF0;
+			box-shadow: -4px -4px 10px #FFFFFF, 4px 4px 10px #A6ABBD;
+			border-radius: 10px;
+		}
+		.ttl_ja {
+			text-align: center;
+			font-size: pxToRem(21px);
+			line-height: 1.2;
+			font-weight: 600;
+			padding: 0.3em 0;
+		}
+		.ttl_en {
+			font-size: pxToRem(14px);
+			text-align: center;
+			font-weight: 600;
+		}
+		.img {
+			margin-top: 25px;
+			img {
+				margin: 0 auto;
+			}
+		}
+		.txt {
+			font-size: pxToRem(14px);
+			margin-top: 16px;
+			font-weight: 600;
+			text-align: left;
+			line-height: 1.8;
+		}
+		.col{
+			&_pu{
+				color: #6E33EC;
+			}
+			&_pk{
+				color: #E60578;
+			}
+			&_yl{
+				color: #C8961E;
+			}
+		}
+	}
+	.acordion {
+		&_btn {
+			background: #C8961E;
+		}
+		&_content {
+			padding: 60px 40px 50px;
+			&_list {
+				display: flex;
+				justify-content: space-between;
+				li {
+					width: 47.7%;
+					max-width: 430px;
+				}
+				.ttl {
+					font-size: pxToRem(18px);
+					font-weight: 600;
+				}
+				.txt {
+					font-size: pxToRem(14px);
+					font-weight: 600;
+					margin-top: 15px;
+					text-align: left;
+				}
+				.img {
+					margin-top: 20px;
+				}
+			}
+		}
+	}
+}
+
+@include media(sm) {
+	.service {
+		margin-top: calcvw(64);
+		&_lead {
+			text-align: left;
+		}
+		&_list {
+			display: block;
+			li {
+				width: 100%;
+				max-width: none;
+				&:nth-of-type(n+2) {
+					margin-top: 20px;
+				}
+			}
+		}
+		.acordion {
+			&_content {
+				padding: calcvw(40) calcvw(20) calcvw(20);
+				&_list {
+					display: block;
+					li {
+						width: 100%;
+						max-width: none;
+						&:nth-of-type(n+2) {
+							margin-top: 30px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,139 @@
+@use "../../foundation/import"as *;
+.slick-arrow{
+	width: 60px;
+	height: 60px;
+	transition: 0.3s;
+	z-index: 10;
+	&::before{
+		content: none;
+	}
+}
+.slick-next{
+	right: 2.2%;
+	background: url(../images/collaboration/icon_arrow_next.png) 0 0 / 100% auto no-repeat;
+	&:hover,
+	&:focus{
+		background: url(../images/collaboration/icon_arrow_next.png) 0 0 / 100% auto no-repeat;
+		opacity: 0.7;
+	}
+}
+.slick-prev{
+	left: 2.2%;
+	background: url(../images/collaboration/icon_arrow_prev.png) 0 0 / 100% auto no-repeat;
+	&:hover,
+	&:focus{
+		background: url(../images/collaboration/icon_arrow_prev.png) 0 0 / 100% auto no-repeat;
+		opacity: 0.7;
+	}
+}
+.collaboration {
+	padding-top: 62px;
+	&_ttl_box {
+		&_caption {
+			width: 248px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		&_ttl {
+			margin-top: 15px;
+			span {
+				font-size: pxToRem(42px);
+				font-family: $rubik-font;
+				font-weight: 600;
+				background: linear-gradient(115.36deg, #FD0905 22.98%, #E3058F 34.35%, #CE01FC 48.69%, #8C0EEA 62.77%, #3A1FD3 74.95%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				text-fill-color: transparent;
+			}
+		}
+	}
+	&_lead {
+		font-weight: 600;
+		margin-top: 20px;
+		font-size: pxToRem(14px);
+	}
+	&_list {
+		margin-top: 20px;
+		li {
+			position: relative;
+			.icon {
+				position: absolute;
+				bottom: calcvwpc(10);
+				right: calcvwpc(10);
+				z-index: 1;
+				width: calcvwpc(50);
+				height: calcvwpc(50);
+				display: block;
+				cursor: pointer;
+			}
+			figure {
+				img {
+					width: 100%;
+				}
+			}
+		}
+	}
+	&_btn {
+		text-align: center;
+		margin-top: 40px;
+	}
+}
+
+@include media(xl) {
+	.collaboration {
+		padding-top: calcvwpc(62);
+		&_caption {
+			width: calcvwpc(248);
+		}
+		&_ttl {
+			margin-top: calcvwpc(15);
+		}
+		&_lead {
+			margin-top: calcvwpc(20);
+		}
+		&_list {
+			margin-top: calcvwpc(20);
+			li {
+				.icon {
+					bottom: calcvwpc(20);
+					right: calcvwpc(20);
+					width: calcvwpc(50);
+					height: calcvwpc(50);
+				}
+			}
+		}
+		&_btn {
+			margin-top: calcvwpc(40);
+		}
+	}
+}
+
+@include media(sm) {
+	.collaboration {
+		padding-top: calcvw(62);
+		&_caption {
+			width: calcvw(248);
+		}
+		&_ttl {
+			margin-top: calcvw(15);
+		}
+		&_lead {
+			margin-top: calcvw(20);
+		}
+		&_list {
+			margin-top: calcvw(20);
+			li {
+				.icon {
+					bottom: calcvw(20);
+					right: calcvw(20);
+					width: calcvw(50);
+					height: calcvw(50);
+				}
+			}
+		}
+		&_btn {
+			margin-top: calcvw(40);
+		}
+	}
+}

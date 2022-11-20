@@ -1,0 +1,29 @@
+@use 'foundation/reset';
+@use 'foundation/base';
+@use 'layout/header';
+@use 'layout/main';
+@use 'layout/footer';
+@use "object/javascript/js-animation";
+@use "object/components/title";
+@use "object/components/text";
+@use "object/components/modal";
+@use "object/components/button";
+@use "object/components/loader";
+@use "object/components/slick";
+@use "object/components/slick-theme";
+@use "object/components/acordion";
+@use "object/components/magnific-popup";
+@use "object/components/multiple-select";
+@use "object/project/fv";
+@use "object/project/mission";
+@use "object/project/collaboration";
+@use "object/project/pickup";
+@use "object/project/partner";
+@use "object/project/news";
+@use "object/project/service";
+@use "object/project/consulting";
+@use "object/project/flow";
+@use "object/project/contact";
+@use "object/project/letter";
+
+/*# sourceMappingURL=style.css.map */

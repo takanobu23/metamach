@@ -1,0 +1,135 @@
+@use "../../foundation/import" as *;
+
+/***************
+   animation   
+****************/
+
+@keyframes anime-text-open {
+    0% {
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+    100% {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+}
+@keyframes bg-anime-close {
+    0% {
+        transform-origin: right;
+    }
+    100% {
+        transform: scaleX(0);
+        transform-origin: right;
+    }
+}
+
+
+.js-animation {
+
+    .text-fadeIn-anime {
+        position: relative;
+        display: block;
+
+        >span{
+            position: relative;
+            display: block;
+            transform: scaleX(0);
+            transform-origin: left;
+            z-index: 1;
+            backface-visibility: hidden;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            display: inline-block;
+            transform: scaleX(0);
+            transform-origin: left;
+            width: 100%;
+            height: 101%;
+            background: linear-gradient(to right, #e271ba, #4dc5f8);
+            backface-visibility: hidden;
+        }
+
+        &.anime_white {
+            &::after {
+            background: #fff;
+            transform: scaleX(1);
+            }
+        }
+        
+    }
+
+    .opa-slide-anime {
+        opacity: 0;
+        transform: scale(1.2) translate(-90px,-28px);
+    }
+
+    .opa-anime {
+        opacity: 0;
+    }
+}
+
+body.loader-fade  {
+    .js-animation.fadeIn {
+/*
+        .text-fadeIn-anime{ 
+            >span {
+                animation: anime-text-open 0.5s cubic-bezier(.895,.03,.685,.22) 0s alternate forwards;
+            }
+            &::after {
+                animation: anime-text-open 0.5s cubic-bezier(.895,.03,.685,.22) 0s alternate forwards,bg-anime-close 0.7s cubic-bezier(.165,.84,.44,1) 0.5s alternate forwards;
+            }
+        }*/
+
+        .fadeIn-anime-box {
+            @for $i from 1 to 5 {
+                .text-fadeIn-anime:nth-child(#{$i}){ 
+                    >span {
+                        transform: scaleX(0);
+                        animation: anime-text-open 0.54s cubic-bezier(.895,.03,.685,.22) calc((#{$i} - 1) * 0.32s + 0.1s) alternate forwards;
+                    }
+                    &::after {
+                        animation: anime-text-open 0.54s cubic-bezier(.895,.03,.685,.22) calc((#{$i} - 1) * 0.32s + 0.1s) alternate forwards,bg-anime-close 0.68s cubic-bezier(.165,.84,.44,1) calc((#{$i} - 1) * 0.32s + 0.54s + 0.12s) alternate forwards;
+                    }
+                }
+            }
+        }
+
+        .opa-slide-anime {
+            opacity: 1;
+            transform: translate(0) scale(1);
+            transition: all 0.82s ease-in-out;
+            transition-delay: 0.2s;
+        }
+
+        .fadeIn-anime-box {
+            @for $i from 1 to 5 {
+                .opa-slide-anime:nth-child(#{$i}){ 
+                    transition-delay: calc((#{$i}) * 0.32s) ;
+                }
+            }
+        }
+
+        .opa-anime {
+            opacity: 1;
+            transition: all 0.52s linear;
+            transition-delay: 0.32s;
+        }
+
+        .fadeIn-anime-box {
+            @for $i from 1 to 5 {
+                .opa-anime:nth-child(#{$i}){ 
+                    transition-delay: calc((#{$i} - 1) * 0.44s) ;
+                }
+            }
+        }
+    }
+    
+}
+
+

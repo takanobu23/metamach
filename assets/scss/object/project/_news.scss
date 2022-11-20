@@ -1,0 +1,35 @@
+@use "../../foundation/import"as *;
+.news {
+	margin-top: 40px;
+	position: relative;
+	z-index: 1;
+	.inner {
+		max-width: 580px;
+	}
+	.ttl {
+		text-align: center;
+		font-family: $rubik-font;
+		font-weight: 600;
+		color: #1414E6;
+		font-size: pxToRem(30px);
+	}
+
+	&_list {
+		border-top: solid 1px #A6ABBD;
+		margin-top: 20px;
+		li {
+			padding:  15px 0;
+			border-bottom: solid 1px #A6ABBD;
+			font-family: $hiragino-font;
+			font-weight: 600;
+		}
+		&_data {
+			font-size: pxToRem(10px);
+			color: #A6ABBD;
+		}
+		&_ttl {
+			font-size: pxToRem(14px);
+			margin-top: 10px;
+		}
+	}
+}

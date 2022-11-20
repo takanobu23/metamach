@@ -1,0 +1,37 @@
+@use "../foundation/import" as *;
+
+.inner {
+	@include content-center(980px);
+}
+
+
+.main_bg {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100vw;
+	height: 100vh;
+	pointer-events: none;
+}
+.main_bg > div {
+	width: 100%;
+	height: 100%;
+}
+
+@include media(xl) {
+	.inner {
+		margin: 0 5%;
+	}
+}
+
+@include media(sm) {
+	.inner {
+		margin: 0 8%;
+	}
+}
+@include media(s_sm) {
+	.inner {
+		margin: 0 6%;
+	}
+}

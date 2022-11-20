@@ -1,0 +1,60 @@
+@use "../../foundation/import"as *;
+
+.title {
+	text-align: center;
+	width: fit-content;
+	margin-right: auto;
+	margin-left: auto;
+	line-height: 1.1;
+
+	span {
+		font-family: $Roboto-font;
+		font-size: pxToRem(55px);
+		font-weight: 500;
+		position: relative;
+		z-index: 1;
+
+		&::before {
+			content: '';
+			@include size(62px, 89px);
+			position: absolute;
+			top: -20px;
+			left: -40px;
+			z-index: -1;
+		}
+	}
+}
+
+.subTitle {
+	font-size: pxToRem(25px);
+	font-family: $Shippori-font;
+	@include tracking(50);
+	text-align: center;
+}
+
+@include media(lg) {
+	.title {
+		span {
+			font-size: pxToRem(60px);
+		}
+	}
+}
+
+@include media(sm) {
+	.title {
+		span {
+			font-size: pxToRem(42px);
+
+			&::before {
+				background-size: 70%;
+				top: -5px;
+				left: -25px;
+			}
+		}
+	}
+
+	.subTitle {
+		font-size: pxToRem(22px);
+		@include l_height(22, 30);
+	}
+}

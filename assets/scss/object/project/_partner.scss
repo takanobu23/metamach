@@ -1,0 +1,55 @@
+@use "../../foundation/import"as *;
+.partner {
+	margin-top: 40px;
+	position: relative;
+	z-index: 1;
+	.ttl {
+		text-align: center;
+		font-family: $rubik-font;
+		font-weight: 600;
+		color: #1414E6;
+		font-size: pxToRem(30px);
+	}
+	&_list {
+		display: flex;
+		justify-content: center;
+		margin-top: 20px;
+		li {
+			width: 200px;
+			&:nth-of-type(n+2) {
+				margin-left: 10px;
+			}
+		}
+	}
+}
+
+@include media(sm) {
+	.partner {
+		.inner {
+			margin: 0;
+		}
+		&_list {
+			width: 92%;
+			overflow-x: auto;
+			white-space: nowrap;
+			overflow-scrolling: touch;
+			-webkit-overflow-scrolling: touch;
+			display: block;
+			padding-bottom: 10px;
+			scrollbar-color: rebeccapurple green;
+			margin-left: 8%;
+			padding-right: 8%;
+			&::-webkit-scrollbar {
+				background-color: #D9D9D9;
+				height: 4px;
+			}
+			&::-webkit-scrollbar-thumb {
+				background-color: #1414E6;
+				width: 75px;
+			}
+		}
+		li {
+			display: inline-block;
+		}
+	}
+}

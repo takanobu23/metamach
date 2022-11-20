@@ -1,0 +1,33 @@
+@use "../../foundation/import"as *;
+.pickup {
+	margin-top: 120px;
+	.ttl {
+		text-align: center;
+		font-family: $rubik-font;
+		font-weight: 600;
+		color: #1414E6;
+		font-size: pxToRem(30px);
+	}
+	&_list {
+		margin-top: 20px;
+		img {
+			width: 100%;
+		}
+	}
+	&_caption {
+		font-size: pxToRem(12px);
+		margin-top: 10px;
+		text-align: left;
+	}
+}
+
+@include media(sm) {
+	.pickup {
+		&_list {
+			margin-top: calcvw(20);
+		}
+		&_caption {
+			margin-top: calcvw(10);
+		}
+	}
+}
