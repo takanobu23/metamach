@@ -9,8 +9,12 @@ $(function() {
 
 $(function() {
 	$('.contact-block01 .contact-btn_next').on('click',function(){
-		$(this).parents('.contact-block').addClass('is-none');
-		$('.contact-block02').removeClass('is-none');
+		if (document.getElementById('check').checked){
+			$(this).parents('.contact-block').addClass('is-none');
+			$('.contact-block02').removeClass('is-none');
+		} else {
+			alert('利用規約に同意してください')
+		}
 	});
 	$('.contact-block01 .contact-btn_back').on('click',function(){
 		$(this).parents('.contact-block').addClass('is-none');
