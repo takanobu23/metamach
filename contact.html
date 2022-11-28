@@ -115,16 +115,16 @@
                 <span class="contact-step-list_check"></span>
               </li>
             </ul>
-            <form>
+            <form id="form1">
               <h2 class="contact_ttl">会員情報を登録</h2>
               <div class="contact-data">
                 <dl class="contact-data-define">
                   <dt class="contact-data-define_ttl">氏名<span class="contact-data-define_required">必須</span></dt>
-                  <dd class="contact-data-define_content"><input type="text" id ="name" class="contact-data_input" name="name" oninput="getvalue(id,value)"></dd>
+                  <dd class="contact-data-define_content"><input type="text" id ="name" class="contact-data_input" name="name" oninput="getvalue(id,value)" required></dd>
                   <dt class="contact-data-define_ttl">メール<span class="contact-data-define_required">必須</span></dt>
-                  <dd class="contact-data-define_content"><input type="email" id="mail" class="contact-data_input" name="mail" oninput="getvalue(id,value)"></dd>
+                  <dd class="contact-data-define_content"><input type="email" id="mail" class="contact-data_input" name="mail" oninput="getvalue(id,value)" required></dd>
                   <dt class="contact-data-define_ttl">電話番号<span class="contact-data-define_required">必須</span></dt>
-                  <dd class="contact-data-define_content"><input type="tel" id = "tel" class="contact-data_input" name="tel" oninput="getvalue(id,value)"></dd>
+                  <dd class="contact-data-define_content"><input type="tel" pattern="[\d\-]*" maxlength="133" id = "tel" class="contact-data_input" name="tel" oninput="getvalue(id,value)" required></dd>
                   <dt class="contact-data-define_ttl">法人名<span class="contact-data-define_small">＊法人/DAO/NPOなどの場合</span></dt>
                   <dd class="contact-data-define_content"><input type="text" id="company" class="contact-data_input" name="company" oninput="getvalue(id,value)"></dd>
                 </dl>
@@ -138,7 +138,7 @@
               </div>
               <div class="contact-btn">
                 <button type="button" class="contact-btn_back" onclick="location.href='./index.html#contact'">戻る</button>
-                <button type="button"  class="contact-btn_next">次へ</button>
+                <button id="contact-btn_next_1" class="contact-btn_next">次へ</button>
               </div>
             </form>
           </div>
@@ -168,10 +168,9 @@
               <div class="contact-data">
                 <p class="contact-data_txt">※あなたのカテゴリを元に、最適な相手からの提案が届き、両者の承諾でマッチングします。</p>
                 <div class="contact-data-select js-select">
-					<!--
-                  <div class="contact-data-select_ttl">あなたのカテゴリを選択<span class="contact-data-define_required">必須</span></div>-->
-                  <select name="category" class="contact-data-select_input js-select-input" id="choice"  onchange="getvalue(id,value)">
-					<option value="">あなたのカテゴリを選択</option>
+					<!--<div class="contact-data-select_ttl">あなたのカテゴリを選択<span class="contact-data-define_required">必須</span></div>-->
+                  <select name="category" class="contact-data-select_input js-select-input" id="choice"  onchange="getvalue(id,value)" required>
+					<option value="" hidden>あなたのカテゴリを選択</option>
                     <option value="企業">企業</option>
                     <option value="アニメ">アニメ</option>
                     <option value="ゲーム">ゲーム</option>
@@ -202,7 +201,7 @@
               </div>
               <div class="contact-btn">
                 <button type="button" class="contact-btn_back">戻る</button>
-                <button type="button" class="contact-btn_next">次へ</button>
+                <button class="contact-btn_next">次へ</button>
               </div>
             </form>
           </div>
@@ -394,26 +393,26 @@
                 <dl class="contact-data-define">
                   <dt class="contact-data-define_ttl">提供可能な素材<span class="contact-data-define_required">必須</span></dt>
                   <dd class="contact-data-define_content">
-                    <textarea name="material" class="contact-data_text" placeholder="制作楽曲・イラスト・ロゴ...など" id="material" onchange="getvalue(id,value)"></textarea>
+                    <textarea name="material" class="contact-data_text" placeholder="制作楽曲・イラスト・ロゴ...など" id="material" onchange="getvalue(id,value)" required></textarea>
                   </dd>
                   <dt class="contact-data-define_ttl">提供可能な特典やサービス<span class="contact-data-define_required">必須</span></dt>
                   <dd class="contact-data-define_content">
-                    <textarea name="service" class="contact-data_text" placeholder="サービス割引・商品・コミュニティ参加権...など" id="comunity" onchange="getvalue(id,value)"></textarea>
+                    <textarea name="service" class="contact-data_text" placeholder="サービス割引・商品・コミュニティ参加権...など" id="comunity" onchange="getvalue(id,value)" required></textarea>
                   </dd>
                   <dt class="contact-data-define_ttl">希望のタイアップ内容<span class="contact-data-define_required">必須</span></dt>
                   <dd class="contact-data-define_content">
-                    <textarea name="tieup" class="contact-data_text" placeholder="ミュージシャンとコラボしサービスを利用できる会員権として使用したい。など" id="tieup" onchange="getvalue(id,value)"></textarea>
+                    <textarea name="tieup" class="contact-data_text" placeholder="ミュージシャンとコラボしサービスを利用できる会員権として使用したい。など" id="tieup" onchange="getvalue(id,value)" required></textarea>
                   </dd>
                   <dt class="contact-data-define_ttl">その他備考欄<span class="contact-data-define_required">必須</span></dt>
                   <dd class="contact-data-define_content">
-                    <textarea name="other" class="contact-data_text" placeholder="制作・告知・販売までのスケジュールは1カ月でも迅速に対応可能。など" id="other" onchange="getvalue(id,value)"></textarea>
+                    <textarea name="other" class="contact-data_text" placeholder="制作・告知・販売までのスケジュールは1カ月でも迅速に対応可能。など" id="other" onchange="getvalue(id,value)" required></textarea>
                   </dd>
                 </dl>
                 <p class="contact-data_txt-ud">※お考えの販売内容をこちらにご記載ください。（どんな相手と、どんなNFTを、いつ頃、どう販売したいなど）</p>
               </div>
               <div class="contact-btn">
                 <button type="button" class="contact-btn_back">戻る</button>
-                <button type="button" class="contact-btn_next">次へ</button>
+                <button class="contact-btn_next">次へ</button>
               </div>
             </form>
           </div>
@@ -511,7 +510,7 @@
             </div>
             <div class="contact-btn">
               <button type="button" class="contact-btn_back" onclick="delete_publish_value('pickup_publish','pickup_publish_cat')">戻る</button>
-              <button type="button" class="contact-btn_end js-jump-06" id="pickup_publish_submit" name="掲載申請" >送信する</button>
+              <button type="submit" class="contact-btn_end js-jump-06" id="pickup_publish_submit" name="掲載申請" >送信する</button>
             </div>
           </div>
           <div class="contact-block contact-block05-2 is-none">
@@ -560,7 +559,7 @@
             </div>
             <div class="contact-btn">
               <button type="button" class="contact-btn_back" onclick="delete_offer_value('hoping_offer_name','hoping_other','hoping_content')">戻る</button>
-              <button type="button" class="contact-btn_end js-jump-06" id="pickup_offer_submit" name="オファー申請" >送信する</button>
+              <button type="submit" class="contact-btn_end js-jump-06" id="pickup_offer_submit" name="オファー申請" >送信する</button>
             </div>
           </div>
           <div class="contact-block contact-block05-3 is-none">
@@ -654,7 +653,7 @@
             </div>
             <div class="contact-btn">
               <button type="button" class="contact-btn_back js-jump-05-3" onclick="delete_offer_value('hoping_offer_name2','hoping_content2','hoping_other2')">戻る</button>
-              <button type="button" class="contact-btn_end js-jump-06" id="both" name="両方">送信する</button>
+              <button type="submit" class="contact-btn_end js-jump-06" id="both" name="両方">送信する</button>
             </div>
           </div>
           <div class="contact-block contact-block06 is-none">
@@ -688,11 +687,12 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js" referrerpolicy="no-referrer"></script>
     <!-- <script src="assets/js/jquery.cookie.js"></script> -->
 	<script src="assets/js/multiple-select.min.js"></script>
-  <script src="assets/js/data.js"></script>
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/contact.js"></script>
+    <script src="assets/js/data.js"></script>
   </body>
 
 </html>

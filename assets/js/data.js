@@ -125,3 +125,42 @@ let delete_publish_value = (id1,id2) => {
   publish[document.getElementById(`${id1}`).name] = "";
   publish[document.getElementById(`${id2}`).name]= "";
 }
+
+//送信
+$(function(){
+  ///// Eメールの送信処理
+  $.validator.setDefaults({
+    submitHandler: function() {
+      $('form').on("submit", function(){
+        let data = parseJson(obj2);
+
+        $.ajax({
+          url:           '[作成したAPIのURL]',
+          type:          'post',
+          dataType:      'json',
+          contentType:   'application/json',
+          scriptCharset: 'utf-8',
+          data:          JSON.stringify(data)
+        })
+        .then(
+          function (data) {
+            ///// 送信成功時の処理
+            alert('送信に成功しました');
+            location.reload();
+          },
+          function (data) {
+            ///// 送信失敗時の処理
+            alert('送信に失敗しました');
+            location.reload();
+        });    
+      })
+      // var parseJson = function(data) {
+      //   var returnJson = {};
+      //   for (idx = 0; idx < data.length; idx++) {
+      //     returnJson[data[idx].name] = data[idx].value
+      //   }
+      //   return returnJson;
+      // }
+    }
+  });
+})
