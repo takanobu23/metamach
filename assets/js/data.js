@@ -162,15 +162,14 @@ let delete_publish_value = (id1,id2) => {
         console.log("送信")
         let data = obj2;
 
-        $.ajax({
-          url:           'https://536shoenoa.execute-api.ap-northeast-1.amazonaws.com/v1',
-          type:          'post',
-          dataType:      'json',
-          contentType:   'application/json',
-          scriptCharset: 'utf-8',
-          data:          JSON.stringify(data)
-        })
-        .then(
+        // $.ajax({
+        //   url:           'https://536shoenoa.execute-api.ap-northeast-1.amazonaws.com/v1',
+        //   type:          'post',
+        //   dataType:      'json',
+        //   contentType:   'application/json',
+        //   scriptCharset: 'utf-8',
+        //   data:          JSON.stringify(data)
+        // })
           function (data) {
             ///// 送信成功時の処理
             var blob = new Blob([JSON.stringify(data, null, 2)], {
