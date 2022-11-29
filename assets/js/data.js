@@ -77,20 +77,21 @@ obj2 = {
 //テキスト情報の取得
 let getvalue = (id,value)=>{
   obj_en[document.getElementById(`${id}`).name] = value
-  obj2['名前'] = obj_en.name;
-  obj2['メールアドレス'] = obj_en.mail;
-  obj2['電話番号'] = obj_en.tel;
-  obj2['会社'] = obj_en.company;
-  obj2['希望カテゴリー'] = obj_en.category;
-  obj2['SNS'] = obj_en.sns;
-  obj2['ユーザー名'] = obj_en.user;
-  obj2['内容'] = obj_en.content;
-  obj2['サービス'] = obj_en.service;
-  obj2['タイアップ'] = obj_en.tieup;
-  obj2['その他'] = obj_en.other;
-  obj2['希望マッチカテゴリー'] = obj_en.match_category;
-  obj2['Pickup_オファー'] = offer;
-  obj2['Pickup_掲載'] = publish;
+  obj2['名前'] = String(obj_en.name);
+  obj2['メールアドレス'] = String(obj_en.mail);
+  obj2['電話番号'] = String(obj_en.tel);
+  obj2['会社'] = String(obj_en.company);
+  obj2['希望カテゴリー'] = String(obj_en.category);
+  obj2['SNS'] = String(obj_en.sns);
+  obj2['ユーザー名'] = String(obj_en.user);
+  obj2['内容'] = String(obj_en.content);
+  obj2['素材'] = String(obj_en.material);
+  obj2['サービス'] = String(obj_en.service);
+  obj2['タイアップ'] = String(obj_en.tieup);
+  obj2['その他'] = String(obj_en.other);
+  obj2['希望マッチカテゴリー'] = String(obj_en.match_category);
+  obj2['Pickup_オファー'] = String(offer);
+  obj2['Pickup_掲載'] = String(publish);
 } 
 
 let Origin_NFT_URL = "metamach";
@@ -107,7 +108,7 @@ let addvalue = (id,value)=>{
       let index = match_list.indexOf(value)
       match_list.splice(index, 1);
     }
-    obj2['希望マッチカテゴリー'] = obj_en.match_category;
+    obj2['希望マッチカテゴリー'] = String(obj_en.match_category);
   return match_list
 }
 //最後のpickup関連のとこのやつ
@@ -154,7 +155,7 @@ let delete_publish_value = (id1,id2) => {
    const submit_btn = (id)=> {
       $(`#${id}`).on("click", function(){
         let data = obj2;
-
+        console.log(data)
         // $.ajax({
         //   url:           'https://536shoenoa.execute-api.ap-northeast-1.amazonaws.com/v1',
         //   type:          'post',
@@ -177,7 +178,14 @@ let delete_publish_value = (id1,id2) => {
               Body: blob
               })
             alert('送信に成功しました');
-            location.reload();
+            const reader = new FileReader();
+            reader.onload = function(){
+ 
+              console.log(reader.result);
+           
+          };
+          reader.readAsText(blob);
+            // location.reload();
           }
 
           const submit_error =  (data)=> {
@@ -186,9 +194,12 @@ let delete_publish_value = (id1,id2) => {
             } else {
                 alert("エラー: " + err.message);
                 location.href = reload()
+                alert('送信に失敗しました');
+                console.log(JSON.stringify(data))
+              
             }
-            alert('送信に失敗しました');
-            location.reload();
+            
+            // location.reload();
         };    
         submit_success(data)
         submit_error(data)
