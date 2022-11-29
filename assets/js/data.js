@@ -114,20 +114,14 @@ let addvalue = (id,value)=>{
 //オファー
 let pickup_add_offer = (name,value)=> {
   offer[`${name}`] = value
-  console.log(name)
-  console.log(publish)
   obj2['Pickup_掲載'] = publish;
   obj2['Pickup_オファー'] = offer;
-  console.log(offer)
 }
 //掲載
 let pickup_add_publish = (name,value) => {
-  console.log(name)
   publish[`${name}`] = value
-  console.log(publish)
   obj2['Pickup_オファー'] = offer;
   obj2['Pickup_掲載'] = publish;
-  console.log(offer)
 }
 
 //重複の対処処理
@@ -159,9 +153,7 @@ let delete_publish_value = (id1,id2) => {
 
    const submit_btn = (id)=> {
       $(`#${id}`).on("click", function(){
-        console.log("送信")
         let data = obj2;
-
         $.ajax({
           url:           'https://536shoenoa.execute-api.ap-northeast-1.amazonaws.com/v1',
           type:          'post',
