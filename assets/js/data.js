@@ -39,7 +39,6 @@ var now = new Date();
 
 
 
-
 //希望のカテゴリ選択のとこ
 let match_list = []
 
@@ -73,6 +72,8 @@ obj2 = {
 };
 
 
+
+
 //テキスト情報の取得
 let getvalue = (id,value)=>{
   obj_en[document.getElementById(`${id}`).name] = value
@@ -94,6 +95,8 @@ let getvalue = (id,value)=>{
 
 let Origin_NFT_URL = "metamach";
 let encoded_URL = encodeURIComponent(Origin_NFT_URL) + "/" + obj_en.name.replace(/[\"]/g, "")+now.getFullYear()+(now.getMonth()+1) + now.getDate()+"_"+now.getTime()+ "/" ;
+
+
 
 //希望のカテゴリ選択のデータ取得
 let addvalue = (id,value)=>{
@@ -149,8 +152,11 @@ let delete_publish_value = (id1,id2) => {
 }
 
 
+
+
 //送信
 ///// Eメールの送信処理
+
    const submit_btn = (id)=> {
       $(`#${id}`).on("click", function(){
         console.log("送信")
@@ -163,32 +169,30 @@ let delete_publish_value = (id1,id2) => {
           contentType:   'application/json',
           scriptCharset: 'utf-8',
           data:          JSON.stringify(data)
-        }).then(
+        })
+        .then(
           function (data) {
             ///// 送信成功時の処理
+            var blob = new Blob([JSON.stringify(data, null, 2)], {
+              type: 'text/plain'
+            });
+            s3.putObject({
+              Key: encoded_URL + obj_en.name.replace(/[\"]/g, "") + ".txt",
+              ContentType: "application/json",
+              Body: blob
+              })
             alert('送信に成功しました');
             location.reload();
           },
           function (data) {
             ///// 送信失敗時の処理
+            if (data !== null) {;
+            } else {
+                alert("エラー: " + err.message);
+                location.href = reload()
+            }
             alert('送信に失敗しました');
             location.reload();
         });    
       })
-      var blob = new Blob([JSON.stringify(data, null, 2)], {
-        type: 'text/plain'
-      });
-      s3.putObject({
-        Key: encoded_URL + obj_en.name.replace(/[\"]/g, "") + ".txt",
-        ContentType: "application/json",
-        Body: blob
-    }, function (err, data) {
-        if (data !== null) {;
-        } else {
-            alert("エラー: " + err.message);
-            location.href = reload()
-        }
-    })
-
     }
-
