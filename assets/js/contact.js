@@ -33,11 +33,10 @@ $(function() {
 	$('.contact-block03 .contact-btn_next').on('click',function(){
 			$(this).parents('.contact-block').addClass('is-none');
 			$('.contact-block04').removeClass('is-none');
-
-		} else {
+		} else { 
 			alert("選択してください")
 		}
-	});
+	);
 	$('.contact-block03 .contact-btn_back').on('click',function(){
 		$(this).parents('.contact-block').addClass('is-none');
 		$('.contact-block02').removeClass('is-none');

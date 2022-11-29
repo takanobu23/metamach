@@ -20,12 +20,14 @@
 var albumBucketName = "metamach-file";
 var bucketRegion = "ap-northeast-1";
 var IdentityPoolId = "ap-northeast-1:31c1a37f-c12a-4ee6-89e0-e7d6f5d8e6ec";
+
 AWS.config.update({
   region: bucketRegion,
   credentials: new AWS.CognitoIdentityCredentials({
       IdentityPoolId: IdentityPoolId
   })
 });
+
 var s3 = new AWS.S3({
   apiVersion: "2006-03-01",
   params: {
@@ -36,8 +38,7 @@ var s3 = new AWS.S3({
 var now = new Date();
 
 
-let Origin_NFT_URL = "metamach";
-let encoded_URL = encodeURIComponent(Origin_NFT_URL) + "/" + set_name.replace(/[\"]/g, "")+now.getFullYear()+(now.getMonth()+1) + now.getDate()+"_"+now.getTime()+ "/" ;
+
 
 //希望のカテゴリ選択のとこ
 let match_list = []
@@ -90,6 +91,9 @@ let getvalue = (id,value)=>{
   obj2['Pickup_オファー'] = offer;
   obj2['Pickup_掲載'] = publish;
 } 
+
+let Origin_NFT_URL = "metamach";
+let encoded_URL = encodeURIComponent(Origin_NFT_URL) + "/" + obj_en.name.replace(/[\"]/g, "")+now.getFullYear()+(now.getMonth()+1) + now.getDate()+"_"+now.getTime()+ "/" ;
 
 //希望のカテゴリ選択のデータ取得
 let addvalue = (id,value)=>{
@@ -145,11 +149,8 @@ let delete_publish_value = (id1,id2) => {
 }
 
 
-
-
 //送信
 ///// Eメールの送信処理
-
    const submit_btn = (id)=> {
       $(`#${id}`).on("click", function(){
         console.log("送信")
