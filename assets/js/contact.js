@@ -34,6 +34,8 @@ $(function() {
 		if(match_list.length > 0){
 			$(this).parents('.contact-block').addClass('is-none');
 			$('.contact-block04').removeClass('is-none');
+		} else {
+			alert("選択してください")
 		}
 	});
 	$('.contact-block03 .contact-btn_back').on('click',function(){
