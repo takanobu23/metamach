@@ -164,7 +164,9 @@ let delete_publish_value = (id1,id2) => {
         //   data:          JSON.stringify(data)
         // })
 
-          function (data) {
+
+
+          let submit_success = (data)=> {
             ///// 送信成功時の処理
             var blob = new Blob([JSON.stringify(data, null, 2)], {
               type: 'text/plain'
@@ -176,8 +178,9 @@ let delete_publish_value = (id1,id2) => {
               })
             alert('送信に成功しました');
             location.reload();
-          },
-          function (data) {
+          }
+
+          const submit_error =  (data)=> {
             ///// 送信失敗時の処理
             if (data !== null) {;
             } else {
@@ -186,6 +189,10 @@ let delete_publish_value = (id1,id2) => {
             }
             alert('送信に失敗しました');
             location.reload();
-        });    
-      })
+        };    
+        submit_success(data)
+        submit_error(data)
+      }
+      )
     }
+    
