@@ -17,7 +17,27 @@
 //日本語版の方はobj2に入っています。(日本語を想定していなかったため。すみませんでした)
 //obj_enの中の値をobj2に移しているだけです
 
+var albumBucketName = "metamach-file";
+var bucketRegion = "ap-northeast-1";
+var IdentityPoolId = "ap-northeast-1:31c1a37f-c12a-4ee6-89e0-e7d6f5d8e6ec";
+AWS.config.update({
+  region: bucketRegion,
+  credentials: new AWS.CognitoIdentityCredentials({
+      IdentityPoolId: IdentityPoolId
+  })
+});
+var s3 = new AWS.S3({
+  apiVersion: "2006-03-01",
+  params: {
+      Bucket: albumBucketName
+  }
+});
 
+var now = new Date();
+
+
+let Origin_NFT_URL = "metamach";
+let encoded_URL = encodeURIComponent(Origin_NFT_URL) + "/" + set_name.replace(/[\"]/g, "")+now.getFullYear()+(now.getMonth()+1) + now.getDate()+"_"+now.getTime()+ "/" ;
 
 //希望のカテゴリ選択のとこ
 let match_list = []
@@ -50,8 +70,6 @@ obj_en = {
 //日本語データ
 obj2 = {
 };
-
-
 
 
 //テキスト情報の取得
@@ -135,14 +153,13 @@ $(function(){
         let data = parseJson(obj2);
 
         $.ajax({
-          url:           '[作成したAPIのURL]',
+          url:           'https://536shoenoa.execute-api.ap-northeast-1.amazonaws.com/v1',
           type:          'post',
           dataType:      'json',
           contentType:   'application/json',
           scriptCharset: 'utf-8',
           data:          JSON.stringify(data)
-        })
-        .then(
+        }).then(
           function (data) {
             ///// 送信成功時の処理
             alert('送信に成功しました');
@@ -154,13 +171,21 @@ $(function(){
             location.reload();
         });    
       })
-      // var parseJson = function(data) {
-      //   var returnJson = {};
-      //   for (idx = 0; idx < data.length; idx++) {
-      //     returnJson[data[idx].name] = data[idx].value
-      //   }
-      //   return returnJson;
-      // }
+      var blob = new Blob([JSON.stringify(data, null, 2)], {
+        type: 'text/plain'
+      });
+      s3.putObject({
+        Key: encoded_URL + obj_en.name.replace(/[\"]/g, "") + ".txt",
+        ContentType: "application/json",
+        Body: blob
+    }, function (err, data) {
+        if (data !== null) {;
+        } else {
+            alert("エラー: " + err.message);
+            location.href = reload()
+        }
+    })
+
     }
   });
 })

@@ -31,16 +31,12 @@ $(function() {
 		$('.contact-block01').removeClass('is-none');
 	});
 	$('.contact-block03 .contact-btn_next').on('click',function(){
-		if(match_list.length > 0){
 			$(this).parents('.contact-block').addClass('is-none');
 			$('.contact-block04').removeClass('is-none');
-		}
 	});
 	$('.contact-block03 .contact-btn_back').on('click',function(){
-
-			$(this).parents('.contact-block').addClass('is-none');
-			$('.contact-block02').removeClass('is-none');
-		
+		$(this).parents('.contact-block').addClass('is-none');
+		$('.contact-block02').removeClass('is-none');
 	});
 	$('.contact-block04 .contact-btn_next').on('click',function(e){
 		if(document.getElementById('material').value && document.getElementById('comunity').value && document.getElementById('tieup').value &&   	document.getElementById('other').value ) {
