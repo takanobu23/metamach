@@ -17,7 +17,7 @@
 //日本語版の方はobj2に入っています。(日本語を想定していなかったため。すみませんでした)
 //obj_enの中の値をobj2に移しているだけです
 
-var albumBucketName = "metamatch-file";
+var albumBucketName = "metamach-file";
 var bucketRegion = "ap-northeast-1";
 var IdentityPoolId = "ap-northeast-1:31c1a37f-c12a-4ee6-89e0-e7d6f5d8e6ec";
 
@@ -27,6 +27,7 @@ AWS.config.update({
       IdentityPoolId: IdentityPoolId
   })
 });
+
 var s3 = new AWS.S3({
   apiVersion: "2006-03-01",
   params: {
@@ -93,7 +94,7 @@ let getvalue = (id,value)=>{
   obj2['Pickup_掲載'] = String(publish);
 } 
 
-let Origin_NFT_URL = "metamatch-file";
+let Origin_NFT_URL = "metamach";
 let encoded_URL = encodeURIComponent(Origin_NFT_URL) + "/" + obj_en.name.replace(/[\"]/g, "")+now.getFullYear()+(now.getMonth()+1) + now.getDate()+"_"+now.getTime()+ "/" ;
 
 
@@ -154,53 +155,46 @@ let delete_publish_value = (id1,id2) => {
    const submit_btn = (id)=> {
       $(`#${id}`).on("click", function(){
         let data = obj2;
-        console.log(data)
-        // $.ajax({
-        //   url:           'https://536shoenoa.execute-api.ap-northeast-1.amazonaws.com/v1',
-        //   type:          'post',
-        //   dataType:      'json',
-        //   contentType:   'application/json',
-        //   scriptCharset: 'utf-8',
-        //   data:          JSON.stringify(data)
-        // })
+        $.ajax({
+          url:           'https://536shoenoa.execute-api.ap-northeast-1.amazonaws.com/v1',
+          type:          'post',
+          dataType:      'json',
+          contentType:   'application/json',
+          scriptCharset: 'utf-8',
+          data:          JSON.stringify(data)
+        })
+        .then(
+          function (data) {
             ///// 送信成功時の処理
-            var blob = new Blob([JSON.stringify(data)], {
+            var blob = new Blob([JSON.stringify(data, null, 2)], {
               type: 'text/plain'
             });
-            
             s3.putObject({
-              Key: "test.txt",// + obj_en.name.replace(/[\"]/g, "") 
+              Key: encoded_URL + obj_en.name.replace(/[\"]/g, "") + ".txt",
               ContentType: "application/json",
               Body: blob
               })
             alert('送信に成功しました');
-            
+            //blob内のデータを見るためのやつ
             const reader = new FileReader();
             reader.onload = function(){
- 
               console.log(reader.result);
-           
-          };
-          reader.readAsText(blob);
-            // location.reload();
-          }
-
-          const submit_error =  (data)=> {
+             };
+            reader.readAsText(blob);
+          },
+          function (data) {
             ///// 送信失敗時の処理
             if (data !== null) {;
             } else {
                 alert("エラー: " + err.message);
-                location.href = reload()
                 alert('送信に失敗しました');
-                console.log(JSON.stringify(data))
-              
+                // location.reload();
             }
-            
-            // location.reload();
-        };    
-        submit_success(data)
-        submit_error(data)
-      }
-      )
+            //blob内のデータを見るためのやつ
+            const reader = new FileReader();
+            reader.onload = function(){
+              console.log(reader.result);
+             };
+        });    
+      })
     }
-    
