@@ -144,13 +144,16 @@ let delete_publish_value = (id1,id2) => {
   publish[document.getElementById(`${id2}`).name]= "";
 }
 
+
+
+
 //送信
-$(function(){
-  ///// Eメールの送信処理
-  $.validator.setDefaults({
-    submitHandler: function() {
-      $('form').on("submit", function(){
-        let data = parseJson(obj2);
+///// Eメールの送信処理
+
+   const submit_btn = (id)=> {
+      $(`#${id}`).on("click", function(){
+        console.log("送信")
+        let data = obj2;
 
         $.ajax({
           url:           'https://536shoenoa.execute-api.ap-northeast-1.amazonaws.com/v1',
@@ -187,5 +190,4 @@ $(function(){
     })
 
     }
-  });
-})
+
