@@ -91,10 +91,15 @@ let getvalue = (id,value)=>{
   obj2['Pickup_オファー'] = offer;
   obj2['Pickup_掲載'] = publish;
 } 
+let  mail_obj = "";
+mail_obj = {
+  "name": obj_en.name,
+  "mail": obj_en.mail,
+  "tell": obj_en.tel,
+}
 
 let Origin_NFT_URL = "metamatch-file";
-let encoded_URL = encodeURIComponent(Origin_NFT_URL) + "/" + obj_en.name.replace(/[\"]/g, "")+now.getFullYear()+(now.getMonth()+1) + now.getDate()+"_"+now.getTime()+ "/" ;
-
+let encoded_URL = encodeURIComponent(Origin_NFT_URL) + "/" +  obj_en.name.replace(/[\"]/g, "")+now.getFullYear()+(now.getMonth()+1) + now.getDate()+"_"+ now.getTime()+ "/" ;
 
 
 //希望のカテゴリ選択のデータ取得
@@ -153,41 +158,43 @@ let delete_publish_value = (id1,id2) => {
    const submit_btn = (id)=> {
       $(`#${id}`).on("click", function(){
         let data = obj2;
-
-        // $.ajax({
-        //   url:           'https://536shoenoa.execute-api.ap-northeast-1.amazonaws.com/v1',
-        //   type:          'post',
-        //   dataType:      'json',
-        //   contentType:   'application/json',
-        //   scriptCharset: 'utf-8',
-        //   data:          JSON.stringify(data)
-        // })
+        let data_en = mail_obj;
+        $.ajax({
+          url:  'https://sau3af81c1.execute-api.ap-northeast-1.amazonaws.com/v1/sendmail',
+          type: 'post',
+          dataType: 'json',
+          contentType: 'application/json',
+          scriptCharset: 'utf-8',
+          data: JSON.stringify(data_en)
+      })
             ///// 送信成功時の処理
-            var blob = new Blob([JSON.stringify(data)], {
+            var blob = new Blob([JSON.stringify(data, null, 2)], {
               type: 'text/plain'
             });
             
             s3.putObject({
-              Key: "test.txt",// + obj_en.name.replace(/[\"]/g, "") 
+              Key: encoded_URL+ obj_en.name.replace(/[\"]/g, "")+".json", 
               ContentType: "application/json",
               Body: blob
-              })
-            alert('送信に成功しました');
-            location.reload();
+              }, function (err, data) {
+                if (data !== null) {
+                    alert("登録が完了いたしました。");
+                } else {
+                    alert("エラー: " + err.message);
+                }
+            })
        
 
-          const submit_error =  (data)=> {
-            ///// 送信失敗時の処理
-            if (data !== null) {;
-            } else {
-                alert("エラー: " + err.message);
-                location.href = reload()
-            }
-            alert('送信に失敗しました');
-            location.reload();
-        };    
-        submit_success(data)
-        submit_error(data)
+        //   const submit_error =  (data)=> {
+        //     ///// 送信失敗時の処理
+        //     if (data !== null) {;
+        //     } else {
+        //         alert("エラー: " + err.message);
+        //         location.href = reload()
+        //     }
+        //     alert('送信に失敗しました');
+        //     location.reload();
+        // };    
       }
       )
     }
