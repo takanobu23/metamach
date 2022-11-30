@@ -90,6 +90,7 @@ let getvalue = (id,value)=>{
   obj2['希望マッチカテゴリー'] = obj_en.match_category;
   obj2['Pickup_オファー'] = offer;
   obj2['Pickup_掲載'] = publish;
+  return obj2
 } 
 let  mail_obj = "";
 mail_obj = {
@@ -112,7 +113,7 @@ let addvalue = (id,value)=>{
       match_list.splice(index, 1);
     }
     obj2['希望マッチカテゴリー'] = obj_en.match_category;
-  return match_list
+  return match_list,obj2
 }
 //最後のpickup関連のとこのやつ
 //オファー
@@ -120,12 +121,14 @@ let pickup_add_offer = (name,value)=> {
   offer[`${name}`] = value
   obj2['Pickup_掲載'] = publish;
   obj2['Pickup_オファー'] = offer;
+  return obj2,offer
 }
 //掲載
 let pickup_add_publish = (name,value) => {
   publish[`${name}`] = value
   obj2['Pickup_オファー'] = offer;
   obj2['Pickup_掲載'] = publish;
+  return obj2, offer
 }
 
 //重複の対処処理
@@ -157,15 +160,38 @@ let delete_publish_value = (id1,id2) => {
 
    const submit_btn = (id)=> {
       $(`#${id}`).on("click", function(){
+        //入力データの更新
+        obj2['名前'] = obj_en.name;
+        obj2['メールアドレス'] = obj_en.mail;
+        obj2['電話番号'] = obj_en.tel;
+        obj2['会社'] = obj_en.company;
+        obj2['希望カテゴリー'] = obj_en.category;
+        obj2['SNS'] = obj_en.sns;
+        obj2['ユーザー名'] = obj_en.user;
+        obj2['内容'] = obj_en.content;
+        obj2['サービス'] = obj_en.service;
+        obj2['タイアップ'] = obj_en.tieup;
+        obj2['その他'] = obj_en.other;
+        obj2['希望マッチカテゴリー'] = obj_en.match_category;
+        obj2['Pickup_オファー'] = offer;
+        obj2['Pickup_掲載'] = publish;
+
+        mail_obj = {
+          "name": obj_en.name,
+          "mail": obj_en.mail,
+          "tell": obj_en.tel,
+        }
+       
         let data = obj2;
         let data_en = mail_obj;
+        console.log(data_en)
         $.ajax({
           url:  'https://sau3af81c1.execute-api.ap-northeast-1.amazonaws.com/v1/sendmail',
           type: 'post',
           dataType: 'json',
           contentType: 'application/json',
           scriptCharset: 'utf-8',
-          data: JSON.stringify(data_en)
+          data: JSON.stringify(data_en,null,2)
       })
             ///// 送信成功時の処理
             var blob = new Blob([JSON.stringify(data, null, 2)], {
