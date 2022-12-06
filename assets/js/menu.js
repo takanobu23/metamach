@@ -35,6 +35,17 @@ $(function() {
     });
 });
 
+$(function() {
+	$('#To_register').on('submit',function(e){
+			e.preventDefault()
+			console.log("hi")
+            const url = './contact.html'
+            window.open(url, '_blank')
+		}
+	);
+}
+)
+
 /*
 $(function() {
 	var state = false;
