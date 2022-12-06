@@ -177,26 +177,37 @@ let delete_publish_value = (id1,id2) => {
         obj2['Pickup_掲載'] = publish;
 
         mail_obj = {
-          "name": obj_en.name,
-          "mail": obj_en.mail,
-          "tell": obj_en.tel,
+          "set_name": obj_en.name,
+          "set_mail": obj_en.mail,
+          "set_tell": obj_en.tel,
         }
+        
        
         let data = obj2;
         let data_en = mail_obj;
+         ///// 送信成功時の処理
+         var blob = new Blob([JSON.stringify(data, null, 2)], {
+          type: 'text/plain'
+        });
+
         console.log(data_en)
         $.ajax({
-          url:  'https://sau3af81c1.execute-api.ap-northeast-1.amazonaws.com/v1/sendmail',
+          url:  'https://qyygvkr3uc.execute-api.ap-northeast-1.amazonaws.com/v1/sendmail',
           type: 'post',
           dataType: 'json',
           contentType: 'application/json',
           scriptCharset: 'utf-8',
-          data: JSON.stringify(data_en,null,2)
-      })
-            ///// 送信成功時の処理
-            var blob = new Blob([JSON.stringify(data, null, 2)], {
-              type: 'text/plain'
-            });
+          data: JSON.stringify(data_en)
+      }).then(
+        function (data_en) {
+          ///// 送信成功時の処理
+          alert('メールの送信に成功しました');
+        },
+        function (data_en) {
+          ///// 送信失敗時の処理
+          alert('送信に失敗しました');
+      });   
+           
             
             s3.putObject({
               Key: encoded_URL+ obj_en.name.replace(/[\"]/g, "")+".json", 
