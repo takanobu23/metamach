@@ -150,15 +150,87 @@ let delete_publish_value = (id1,id2) => {
   //データの方の削除
   publish[document.getElementById(`${id1}`).name] = "";
   publish[document.getElementById(`${id2}`).name]= "";
+
+  pickup1_offer_money = null;
+  pickup1_offer_category = null;
+  pickup2_desired_name = null;
+  pickup2_supposed_collaboration = null;
+  pickup2_other = null;
 }
 
+//csv用データ
+let pickup1_offer_money;
+let pickup1_offer_category;
 
+let pickup2_desired_name;
+let pickup2_supposed_collaboration;
+let pickup2_other;
+
+//掲載申請
+document.getElementById('pickup_publish').addEventListener('input',()=>{
+  pickup1_offer_money = document.getElementById('pickup_publish').value
+  console.log(pickup1_offer_money)
+})
+document.getElementById('pickup_publish_cat').addEventListener('input',()=>{
+  pickup1_offer_category = document.getElementById('pickup_publish_cat').value
+})
+//オファー申請
+document.getElementById('hoping_offer_name').addEventListener('input',()=>{
+  pickup2_desired_name = document.getElementById('hoping_offer_name').value
+})
+document.getElementById('hoping_content').addEventListener('input',()=>{
+  pickup2_supposed_collaboration = document.getElementById('hoping_content').value
+})
+document.getElementById('hoping_other').addEventListener('input',()=>{
+  pickup2_other = document.getElementById('hoping_other').value
+})
+//両方
+document.getElementById('contact_price').addEventListener('input',()=>{
+  pickup1_offer_money = document.getElementById('contact_price').value
+})
+document.getElementById('contact_category').addEventListener('input',()=>{
+  pickup1_offer_category = document.getElementById('contact_category').value
+})
+document.getElementById('hoping_offer_name2').addEventListener('input',()=>{
+  pickup2_desired_name = document.getElementById('hoping_offer_name2').value
+})
+document.getElementById('hoping_content2').addEventListener('input',()=>{
+  pickup2_supposed_collaboration = document.getElementById('hoping_content2').value
+})
+document.getElementById('hoping_other2').addEventListener('input',()=>{
+  pickup2_other = document.getElementById('hoping_other2').value
+})
+
+
+
+let csv_obj = [obj_en.name,obj_en.mail,obj_en.tel,obj_en.company,obj_en.category,obj_en.sns,obj_en.user,obj_en.content,obj_en.service,obj_en.tieup,obj_en.other,obj_en.match_category,pickup1_offer_money,pickup1_offer_category,pickup2_desired_name,pickup2_supposed_collaboration,pickup2_other]
 
 
 //送信
 ///// Eメールの送信処理
 
    const submit_btn = (id)=> {
+    match_list = match_list.join(';')
+
+    csv_obj = [obj_en.name,
+      obj_en.mail,
+      obj_en.tel,
+      obj_en.company,
+      obj_en.category,
+      obj_en.sns,
+      obj_en.user,
+      obj_en.content,
+      obj_en.service,
+      obj_en.tieup,
+      obj_en.other,
+      match_list,
+      pickup1_offer_money,
+      pickup1_offer_category,
+      pickup2_desired_name,
+      pickup2_supposed_collaboration,
+      pickup2_other]
+    
+    console.log(csv_obj)
       $(`#${id}`).on("click", function(){
         //入力データの更新
         obj2['名前'] = obj_en.name;
@@ -183,7 +255,7 @@ let delete_publish_value = (id1,id2) => {
         }
         
        
-        let data = obj2;
+        let data = csv_obj;
         let data_en = mail_obj;
          ///// 送信成功時の処理
          var blob = new Blob([JSON.stringify(data, null, 2)], {
@@ -210,8 +282,8 @@ let delete_publish_value = (id1,id2) => {
            
             
             s3.putObject({
-              Key: encoded_URL+ obj_en.name.replace(/[\"]/g, "")+".json", 
-              ContentType: "application/json",
+              Key: encoded_URL+ obj_en.name.replace(/[\"]/g, "")+".csv", 
+              ContentType: "text/csv",
               Body: blob
               }, function (err, data) {
                 if (data !== null) {
