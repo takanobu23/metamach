@@ -8,13 +8,12 @@ $(function() {
 });
 
 $(function() {
-	$('.contact-block01 .contact-btn_next').on('click',function(e){
-		if (document.getElementById('check').checked && document.getElementById('name').value && document.getElementById('mail').value ){
+	$('#form1').on('submit',function(e){
 			e.preventDefault()
 			$(this).parents('.contact-block').addClass('is-none');
 			$('.contact-block02').removeClass('is-none');
 		}
-	});
+	);
 	$('.contact-block01 .contact-btn_back').on('click',function(){
 			$(this).parents('.contact-block').addClass('is-none');
 			$('.contact-block00').removeClass('is-none');
