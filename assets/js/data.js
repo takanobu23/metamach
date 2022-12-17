@@ -99,8 +99,7 @@ mail_obj = {
   "tell": obj_en.tel,
 }
 
-let Origin_NFT_URL = "metamatch-file";
-let encoded_URL = encodeURIComponent(Origin_NFT_URL) + "/" +  obj_en.name.replace(/[\"]/g, "")+now.getFullYear()+(now.getMonth()+1) + now.getDate()+"_"+ now.getTime()+ "/" ;
+
 
 
 //希望のカテゴリ選択のデータ取得
@@ -182,7 +181,8 @@ let delete_publish_value = (id1,id2) => {
           "set_tell": obj_en.tel,
         }
         
-       
+        let encoded_URL =  obj_en.name.replace(/[\"]/g, "")+"_"+now.getFullYear()+(now.getMonth()+1) + now.getDate()+"_"+ now.getTime()+ "/" ;
+
         let data = obj2;
         let data_en = mail_obj;
          ///// 送信成功時の処理
