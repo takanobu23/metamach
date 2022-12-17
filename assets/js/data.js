@@ -102,8 +102,10 @@ mail_obj = {
   "tell": obj_en.tel,
 }
 
+
 let Origin_NFT_URL = "metamach";
 let encoded_URL = encodeURIComponent(Origin_NFT_URL) + "/" + obj_en.name.replace(/[\"]/g, "")+now.getFullYear()+(now.getMonth()+1) + now.getDate()+"_"+now.getTime()+ "/" ;
+
 
 
 
@@ -261,8 +263,14 @@ let csv_obj = [obj_en.name,obj_en.mail,obj_en.tel,obj_en.company,obj_en.category
           "set_tell": obj_en.tel,
         }
         
+
+        let encoded_URL =  obj_en.name.replace(/[\"]/g, "")+"_"+now.getFullYear()+(now.getMonth()+1) + now.getDate()+"_"+ now.getTime()+ "/" ;
+
+        let data = obj2;
+
        
         let data = csv_obj;
+
         let data_en = mail_obj;
          ///// 送信成功時の処理
          var blob = new Blob([JSON.stringify(data, null, 2)], {
