@@ -17,7 +17,7 @@
 //日本語版の方はobj2に入っています。(日本語を想定していなかったため。すみませんでした)
 //obj_enの中の値をobj2に移しているだけです
 
-var albumBucketName = "metamatch-file";
+var albumBucketName = "metamach-file";
 var bucketRegion = "ap-northeast-1";
 var IdentityPoolId = "ap-northeast-1:31c1a37f-c12a-4ee6-89e0-e7d6f5d8e6ec";
 
@@ -27,6 +27,7 @@ AWS.config.update({
       IdentityPoolId: IdentityPoolId
   })
 });
+
 var s3 = new AWS.S3({
   apiVersion: "2006-03-01",
   params: {
@@ -76,6 +77,7 @@ obj2 = {
 //テキスト情報の取得
 let getvalue = (id,value)=>{
   obj_en[document.getElementById(`${id}`).name] = value
+
   obj2['名前'] = obj_en.name;
   obj2['メールアドレス'] = obj_en.mail;
   obj2['電話番号'] = obj_en.tel;
@@ -91,6 +93,7 @@ let getvalue = (id,value)=>{
   obj2['Pickup_オファー'] = offer;
   obj2['Pickup_掲載'] = publish;
   return obj2
+
 } 
 let  mail_obj = "";
 mail_obj = {
@@ -99,8 +102,9 @@ mail_obj = {
   "tell": obj_en.tel,
 }
 
-let Origin_NFT_URL = "metamatch-file";
-let encoded_URL = encodeURIComponent(Origin_NFT_URL) + "/" +  obj_en.name.replace(/[\"]/g, "")+now.getFullYear()+(now.getMonth()+1) + now.getDate()+"_"+ now.getTime()+ "/" ;
+let Origin_NFT_URL = "metamach";
+let encoded_URL = encodeURIComponent(Origin_NFT_URL) + "/" + obj_en.name.replace(/[\"]/g, "")+now.getFullYear()+(now.getMonth()+1) + now.getDate()+"_"+now.getTime()+ "/" ;
+
 
 
 //希望のカテゴリ選択のデータ取得
@@ -112,8 +116,10 @@ let addvalue = (id,value)=>{
       let index = match_list.indexOf(value)
       match_list.splice(index, 1);
     }
+
     obj2['希望マッチカテゴリー'] = obj_en.match_category;
   return match_list,obj2
+
 }
 //最後のpickup関連のとこのやつ
 //オファー
@@ -232,6 +238,7 @@ let csv_obj = [obj_en.name,obj_en.mail,obj_en.tel,obj_en.company,obj_en.category
     
     console.log(csv_obj)
       $(`#${id}`).on("click", function(){
+
         //入力データの更新
         obj2['名前'] = obj_en.name;
         obj2['メールアドレス'] = obj_en.mail;
@@ -308,3 +315,4 @@ let csv_obj = [obj_en.name,obj_en.mail,obj_en.tel,obj_en.company,obj_en.category
       )
     }
     
+
