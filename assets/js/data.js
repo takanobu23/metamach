@@ -70,7 +70,7 @@ obj_en = {
 obj2 = {
 };
 
-
+let add_data=now.getFullYear()+"/"+(now.getMonth()+1) + "/"+now.getDate()+"_"+now.getHours()+":"+now.getMinutes()+":"+now.getSeconds()  ;
 
 
 //テキスト情報の取得
@@ -101,8 +101,7 @@ mail_obj = {
   "tell": obj_en.tel,
 }
 
-let Origin_NFT_URL = "metamach";
-let encoded_URL = encodeURIComponent(Origin_NFT_URL) + "/" + obj_en.name.replace(/[\"]/g, "")+now.getFullYear()+(now.getMonth()+1) + now.getDate()+"_"+now.getTime()+ "/" ;
+
 
 
 
@@ -217,7 +216,9 @@ let csv_obj = [obj_en.name,obj_en.mail,obj_en.tel,obj_en.company,obj_en.category
    const submit_btn = (id)=> {
     match_list = match_list.join(';')
 
-    csv_obj = [obj_en.name,
+    csv_obj =[ [
+      add_data,
+      obj_en.name,
       obj_en.mail,
       obj_en.tel,
       obj_en.company,
@@ -233,7 +234,7 @@ let csv_obj = [obj_en.name,obj_en.mail,obj_en.tel,obj_en.company,obj_en.category
       pickup1_offer_category,
       pickup2_desired_name,
       pickup2_supposed_collaboration,
-      pickup2_other]
+      pickup2_other],];
     
     console.log(csv_obj)
       $(`#${id}`).on("click", function(){
@@ -259,14 +260,18 @@ let csv_obj = [obj_en.name,obj_en.mail,obj_en.tel,obj_en.company,obj_en.category
           "set_mail": obj_en.mail,
           "set_tell": obj_en.tel,
         }
-        
+
+        let encoded_URL =  obj_en.name.replace(/[\"]/g, "")+now.getFullYear()+(now.getMonth()+1) + now.getDate()+"_"+now.getTime()+ "/" ;
+
        
         let data = csv_obj;
         let data_en = mail_obj;
          ///// 送信成功時の処理
-         var blob = new Blob([JSON.stringify(data, null, 2)], {
-          type: 'text/plain'
-        });
+        //  var blob = new Blob([JSON.stringify(data, null, 2)], {
+        //   type: 'text/plain'
+        // });
+        let bom = new Uint8Array([0xEF, 0xBB, 0xBF]);
+        let blob = new Blob([ bom, data ], { 'type' : 'text/csv' });
 
         console.log(data_en)
         $.ajax({
@@ -287,8 +292,20 @@ let csv_obj = [obj_en.name,obj_en.mail,obj_en.tel,obj_en.company,obj_en.category
       });   
            
             
+            // s3.putObject({
+            //   Key: encoded_URL+ obj_en.name.replace(/[\"]/g, "")+".csv", 
+            //   ContentType: "text/csv",
+            //   Body: blob
+            //   }, function (err, data) {
+            //     if (data !== null) {
+            //         alert("登録が完了いたしました。");
+            //     } else {
+            //         alert("エラー: " + err.message);
+            //     }
+            // })
+
             s3.putObject({
-              Key: encoded_URL+ obj_en.name.replace(/[\"]/g, "")+".csv", 
+              Key: "datacheck"+".csv", 
               ContentType: "text/csv",
               Body: blob
               }, function (err, data) {
