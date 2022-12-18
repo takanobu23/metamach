@@ -240,6 +240,7 @@ let csv_obj = [obj_en.name,obj_en.mail,obj_en.tel,obj_en.company,obj_en.category
     
     console.log(csv_obj)
       $(`#${id}`).on("click", function(){
+        match_list = match_list.join(';')
 
         //入力データの更新
         obj2['名前'] = obj_en.name;
@@ -262,11 +263,31 @@ let csv_obj = [obj_en.name,obj_en.mail,obj_en.tel,obj_en.company,obj_en.category
           "set_mail": obj_en.mail,
           "set_tell": obj_en.tel,
         }
+
+        api_csv_obj = {
+          "set_name": obj_en.name,
+          "set_mail": obj_en.mail,
+          "set_tell": obj_en.tel,
+          "set_company": obj_en.company,
+          "set_category": obj_en.category,
+          "set_sns": obj_en.sns,
+          "set_user": obj_en.user,
+          "set_content": obj_en.content,
+          "set_service": obj_en.service,
+          "set_tieup": obj_en.tieup,
+          "set_other": obj_en.other,
+          "match_list": match_list,
+          "pickup1_offer_money": pickup1_offer_money,
+          "pickup1_offer_category": pickup1_offer_category,,
+          "pickup2_desired_name": pickup2_desired_name,
+          "pickup2_supposed_collaboration": pickup2_supposed_collaboration,
+          "pickup2_other": pickup2_other,
+        }
         
 
         let encoded_URL =  obj_en.name.replace(/[\"]/g, "")+"_"+now.getFullYear()+(now.getMonth()+1) + now.getDate()+"_"+ now.getTime()+ "/" ;
 
-        let data = obj2;
+        //let data = obj2;
 
        
         let data = csv_obj;
@@ -294,6 +315,23 @@ let csv_obj = [obj_en.name,obj_en.mail,obj_en.tel,obj_en.company,obj_en.category
           ///// 送信失敗時の処理
           alert('送信に失敗しました');
       });   
+
+      $.ajax({
+        url:  'https://qyygvkr3uc.execute-api.ap-northeast-1.amazonaws.com/v1/sendmail',
+        type: 'post',
+        dataType: 'json',
+        contentType: 'application/json',
+        scriptCharset: 'utf-8',
+        data: JSON.stringify(data_en)
+    }).then(
+      function (data_en) {
+        ///// 送信成功時の処理
+        alert('メールの送信に成功しました');
+      },
+      function (data_en) {
+        ///// 送信失敗時の処理
+        alert('送信に失敗しました');
+    });   
            
             
             s3.putObject({
