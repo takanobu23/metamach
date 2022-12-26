@@ -263,7 +263,7 @@ let csv_obj = [obj_en.name,obj_en.mail,obj_en.tel,obj_en.company,obj_en.category
 
         let encoded_URL =  obj_en.name.replace(/[\"]/g, "")+now.getFullYear()+(now.getMonth()+1) + now.getDate()+"_"+now.getTime()+ "/" ;
 
-       
+        let CSV_URL =  "csv"+"/";
         let data = csv_obj;
         let data_en = mail_obj;
          ///// 送信成功時の処理
@@ -293,7 +293,7 @@ let csv_obj = [obj_en.name,obj_en.mail,obj_en.tel,obj_en.company,obj_en.category
            
             
             // s3.putObject({
-            //   Key: encoded_URL+ obj_en.name.replace(/[\"]/g, "")+".csv", 
+            //   Key: CSV_URL+ obj_en.name.replace(/[\"]/g, "")+".csv", 
             //   ContentType: "text/csv",
             //   Body: blob
             //   }, function (err, data) {
@@ -305,7 +305,7 @@ let csv_obj = [obj_en.name,obj_en.mail,obj_en.tel,obj_en.company,obj_en.category
             // })
 
             s3.putObject({
-              Key: "datacheck"+".csv", 
+              Key: "csv/"+"datacheck"+".csv", 
               ContentType: "text/csv",
               Body: blob
               }, function (err, data) {
