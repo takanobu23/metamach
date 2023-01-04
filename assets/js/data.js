@@ -17,9 +17,9 @@
 //日本語版の方はobj2に入っています。(日本語を想定していなかったため。すみませんでした)
 //obj_enの中の値をobj2に移しているだけです
 
-var albumBucketName = "metamach-file";
-var bucketRegion = "ap-northeast-1";
-var IdentityPoolId = "ap-northeast-1:31c1a37f-c12a-4ee6-89e0-e7d6f5d8e6ec";
+var albumBucketName = ;
+var bucketRegion = ;
+var IdentityPoolId ;
 
 AWS.config.update({
   region: bucketRegion,
